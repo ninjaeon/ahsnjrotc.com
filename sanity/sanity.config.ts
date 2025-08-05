@@ -42,7 +42,7 @@ export default defineConfig({
         origin: 'https://ahs-njrotc-v2-web--ahs-njrotc-v2.us-central1.hosted.app',
         preview: '/',
         previewMode: {
-          enable: '/api/draft-mode/enable?secret=draft-preview-secret-2024',
+          enable: '/api/draft-mode/enable',
         },
       },
     }),
