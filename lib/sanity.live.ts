@@ -12,11 +12,11 @@ if (!token && typeof window !== 'undefined') {
 export const { sanityFetch, SanityLive } = defineLive({
   client: client.withConfig({
     apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION,
-    useCdn: true,
+    useCdn: false, // Disable CDN for live content to ensure fresh data
     stega: {
       studioUrl: process.env.NEXT_PUBLIC_SANITY_STUDIO_URL,
     },
   }),
-  serverToken: token || '', // Provide empty string fallback for build
-  browserToken: token || '', // Provide empty string fallback for build
+  serverToken: token || '', // Only used server-side
+  browserToken: '', // Don't expose sensitive token to browser
 })
