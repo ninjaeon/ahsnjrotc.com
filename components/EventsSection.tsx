@@ -1,21 +1,24 @@
 import SanityImage from './SanityImage'
 
+// The 'SanityImageObject' represents the structure of an image object from Sanity
+type SanityImageObject = {
+  _key: string
+  asset: {
+    _ref: string
+    _type: string
+  }
+  alt: string
+  caption?: string
+}
+
 interface Event {
   _id: string
   title: string
   description: string
-  date: string
+  date?: string // Date is now optional
   location: string
   isPastEvent: boolean
-  gallery?: Array<{
-    _key: string
-    asset: {
-      _ref: string
-      _type: string
-    }
-    alt: string
-    caption?: string
-  }>
+  gallery?: Array<SanityImageObject | string> // Gallery can be an array of Sanity objects or strings (for local images)
 }
 
 interface EventsSectionProps {
@@ -53,9 +56,9 @@ export default function EventsSection({ events }: EventsSectionProps) {
         {pastEvents.length > 0 && (
           <div>
             <h3 className="text-2xl md:text-3xl font-bold text-gold-400 mb-8 text-center">
-              Past Events
+              Recent Events
             </h3>
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-1 gap-8">
               {pastEvents.map((event) => (
                 <PastEventCard key={event._id} event={event} />
               ))}
@@ -76,7 +79,7 @@ export default function EventsSection({ events }: EventsSectionProps) {
 }
 
 function EventCard({ event }: { event: Event }) {
-  const eventDate = new Date(event.date)
+  const eventDate = event.date ? new Date(event.date) : null
   
   return (
     <div className="bg-primary-800/50 backdrop-blur-sm rounded-lg overflow-hidden border border-gold-400/20 hover:border-gold-400/40 transition-colors duration-300">
@@ -85,9 +88,11 @@ function EventCard({ event }: { event: Event }) {
           <h4 className="text-xl font-bold text-gold-400 flex-1">
             {event.title}
           </h4>
-          <div className="text-sm text-white/70 ml-4">
-            {eventDate.toLocaleDateString()}
-          </div>
+          {eventDate && (
+            <div className="text-sm text-white/70 ml-4">
+              {eventDate.toLocaleDateString()}
+            </div>
+          )}
         </div>
         
         <p className="text-white/90 mb-4 leading-relaxed">
@@ -123,7 +128,7 @@ function EventCard({ event }: { event: Event }) {
 }
 
 function PastEventCard({ event }: { event: Event }) {
-  const eventDate = new Date(event.date)
+  const eventDate = event.date ? new Date(event.date) : null
   
   return (
     <div className="bg-primary-800/50 backdrop-blur-sm rounded-lg overflow-hidden border border-gold-400/20">
@@ -132,9 +137,11 @@ function PastEventCard({ event }: { event: Event }) {
           <h4 className="text-xl font-bold text-gold-400 flex-1">
             {event.title}
           </h4>
-          <div className="text-sm text-white/70 ml-4">
-            {eventDate.toLocaleDateString()}
-          </div>
+          {eventDate && (
+            <div className="text-sm text-white/70 ml-4">
+              {eventDate.toLocaleDateString()}
+            </div>
+          )}
         </div>
         
         <p className="text-white/90 mb-4 leading-relaxed">
@@ -171,23 +178,26 @@ function PastEventCard({ event }: { event: Event }) {
             <h5 className="text-lg font-semibold text-gold-400 mb-4">
               Event Photos
             </h5>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {event.gallery.slice(0, 6).map((photo, index) => (
-                <div key={index} className="aspect-square rounded-lg overflow-hidden">
-                  <SanityImage
-                    image={photo}
-                    alt={photo.alt || `${event.title} photo ${index + 1}`}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                    sizes="(max-width: 768px) 50vw, 33vw"
-                  />
+            <div className="flex overflow-x-auto space-x-4 pb-4" style={{ scrollSnapType: 'x mandatory' }}>
+              {event.gallery.map((photo, index) => (
+                <div key={index} className="flex-shrink-0 w-2/3 md:w-1/3 rounded-lg overflow-hidden" style={{ scrollSnapAlign: 'start' }}>
+                  {typeof photo === 'string' ? (
+                    <img
+                      src={photo}
+                      alt={`${event.title} photo ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <SanityImage
+                      image={photo as SanityImageObject}
+                      alt={(photo as SanityImageObject).alt || `${event.title} photo ${index + 1}`}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 768px) 50vw, 33vw"
+                    />
+                  )}
                 </div>
               ))}
             </div>
-            {event.gallery.length > 6 && (
-              <p className="text-sm text-white/70 mt-2">
-                +{event.gallery.length - 6} more photos
-              </p>
-            )}
           </div>
         )}
       </div>
