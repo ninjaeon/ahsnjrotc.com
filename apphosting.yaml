@@ -27,10 +27,21 @@ env:
       - BUILD
       - RUNTIME
 
+  - variable: NEXT_PUBLIC_SANITY_STUDIO_URL
+    value: https://ahsnjrotc.sanity.studio
+    availability:
+      - BUILD
+      - RUNTIME
+
   # Grant access to secrets in Cloud Secret Manager.
   # See https://firebase.google.com/docs/app-hosting/configure#secret-parameters
   - variable: SANITY_API_READ_TOKEN
     secret: sanity-api-read-token
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: SANITY_VIEWER_TOKEN
+    secret: sanity-viewer-token
     availability:
       - BUILD
       - RUNTIME
