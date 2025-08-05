@@ -15,8 +15,12 @@ export const { sanityFetch, SanityLive } = defineLive({
     useCdn: false, // Disable CDN for live content to ensure fresh data
     stega: {
       studioUrl: process.env.NEXT_PUBLIC_SANITY_STUDIO_URL,
+      // Enable stega encoding for Visual Editing overlays
+      enabled: true,
     },
   }),
   serverToken: token || '', // Only used server-side
-  browserToken: '', // Don't expose sensitive token to browser
+  // Important: We need to provide the token to the browser for Visual Editing to work
+  // We should only do this in draft mode, controlled by the draft mode API
+  browserToken: process.env.NODE_ENV === 'development' ? token || '' : '', // Only expose in development
 })
