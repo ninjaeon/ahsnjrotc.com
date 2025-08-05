@@ -92,10 +92,9 @@ export const sampleNjrotcData = {
   events: [
     {
       _id: "upcoming-1",
-      title: "Annual Military Ball",
+      title: "Annual Navy Ball",
       description: "Formal dinner and dance celebrating military traditions and recognizing outstanding cadets.",
-      date: "2025-03-15T19:00:00.000Z",
-      location: "Arnold High School Gymnasium",
+      location: "Edgewater Event Center",
       isPastEvent: false,
       gallery: []
     },
@@ -116,6 +115,24 @@ export const sampleNjrotcData = {
       location: "Arnold High School",
       isPastEvent: true,
       gallery: [] // Would contain photos in real implementation
+    },
+    {
+      _id: "past-2",
+      title: "Annual Navy Ball",
+      description: "Formal dinner and dance celebrating military traditions and recognizing outstanding cadets.",
+      date: "2025-04-06T19:00:00.000Z",
+      location: "Edgewater Event Center",
+      isPastEvent: true,
+      gallery: [
+        "/img/IMG_0201.jpeg",
+        "/img/IMG_0202.jpeg",
+        "/img/IMG_0203.jpeg",
+        "/img/IMG_0204.jpeg",
+        "/img/IMG_0205.jpeg",
+        "/img/IMG_0206.jpeg",
+        "/img/IMG_0207.jpeg",
+        "/img/IMG_0208.jpeg"
+      ]
     }
   ],
   contactInfo: {
