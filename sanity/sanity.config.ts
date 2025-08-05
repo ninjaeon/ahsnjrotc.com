@@ -37,7 +37,7 @@ export default defineConfig({
       previewUrl: {
         origin: 'https://ahs-njrotc-v2-web--ahs-njrotc-v2.us-central1.hosted.app',
         draftMode: {
-          enable: '/api/draft?secret=' + process.env.SANITY_STUDIO_READ_TOKEN,
+          enable: '/api/draft?secret=draft-preview-secret-2024',
         },
       },
     }),
