@@ -1,14 +1,9 @@
 export const sampleNjrotcData = {
   pageTitle: "Arnold High School NJROTC",
   heroImage: null, // Will show placeholder
-  goalsTitle: "What does the NJROTC program do?",
+  goalsTitle: "About Marlin Company",
   programGoals: [
-    "Develop informed and responsible citizens",
-    "Promote leadership, citizenship, and service to the United States",
-    "Develop self-discipline, teamwork, and leadership skills",
-    "Promote an understanding of the basic elements and requirements for national security",
-    "Develop respect for constituted authority",
-    "Develop a high degree of personal honor, self-reliance, individual discipline, and leadership"
+    "Welcome to the J.R. Arnold High School NJROTC, where we are dedicated to developing young men and women of character, integrity, and leadership. Our program instills a sense of discipline, responsibility, and patriotism while preparing cadets to become confident, capable citizens and future leaders. Through a combination of classroom instruction, physical training, community service, and leadership opportunities, cadets gain valuable life skills and a deeper understanding of teamwork, accountability, and respect. Whether participating in drill competitions, academic teams, or community outreach events, every cadet in our company is encouraged to strive for excellence and to represent our school and community with pride. At J.R. Arnold NJROTC, we don’t just build strong cadets — we build strong futures."
   ],
   benefitsTitle: "What are the benefits of NJROTC?",
   benefitsContent: [

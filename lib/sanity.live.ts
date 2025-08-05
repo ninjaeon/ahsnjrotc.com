@@ -16,7 +16,7 @@ export const { sanityFetch, SanityLive } = defineLive({
     stega: {
       studioUrl: process.env.NEXT_PUBLIC_SANITY_STUDIO_URL,
       // Enable stega encoding for Visual Editing overlays
-      enabled: true,
+      enabled: false,
     },
   }),
   serverToken: token || '', // Only used server-side
