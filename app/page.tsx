@@ -75,6 +75,7 @@ export default async function HomePage() {
     <main className="min-h-screen">
       <HeroSection 
         title={data.pageTitle}
+        mainTitle="Forging Future Leaders"
         heroImage={data.heroImage}
       />
       
