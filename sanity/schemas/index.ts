@@ -1,4 +1,4 @@
-import event from './event'
-import njrotcPage from './njrotcPage'
+import {eventType} from './event'
+import {njrotcPageType} from './njrotcPage'
 
-export const schemaTypes = [event, njrotcPage]
+export const schemaTypes = [eventType, njrotcPageType]

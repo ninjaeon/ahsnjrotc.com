@@ -1,96 +1,157 @@
-import {defineField, defineType} from 'sanity'
+import {defineField, defineType, defineArrayMember} from 'sanity'
+import {CalendarIcon} from '@sanity/icons'
 
-export default defineType({
+export const eventType = defineType({
   name: 'event',
   title: 'Event',
   type: 'document',
+  icon: CalendarIcon,
+  groups: [
+    {
+      name: 'content',
+      title: 'Content',
+      icon: CalendarIcon,
+      default: true,
+    },
+    {
+      name: 'media',
+      title: 'Media',
+      icon: CalendarIcon,
+    },
+    {
+      name: 'settings',
+      title: 'Settings',
+      icon: CalendarIcon,
+    },
+  ],
   fields: [
     defineField({
       name: 'title',
-      title: 'Event Title',
       type: 'string',
-      validation: (Rule) => Rule.required().min(3).max(100),
+      group: 'content',
+      validation: (Rule) => 
+        Rule.required()
+          .min(3)
+          .max(100)
+          .error('Event title must be between 3 and 100 characters'),
       description: 'The title of the event (e.g., "Annual Military Ball", "Community Service Day")',
     }),
     defineField({
       name: 'description',
-      title: 'Event Description',
       type: 'text',
-      validation: (Rule) => Rule.required().min(10).max(500),
+      group: 'content',
+      validation: (Rule) => 
+        Rule.required()
+          .min(10)
+          .max(500)
+          .warning('Consider keeping descriptions between 50-300 characters for better readability')
+          .error('Event description is required and must be between 10 and 500 characters'),
       description: 'A brief description of what the event is about',
     }),
     defineField({
       name: 'date',
-      title: 'Event Date',
       type: 'datetime',
-      validation: (Rule) => Rule.required(),
+      group: 'content',
+      fieldset: 'eventDetails',
+      validation: (Rule) => 
+        Rule.required()
+          .error('Event date is required for scheduling and organization'),
       description: 'When the event takes place or took place',
     }),
     defineField({
       name: 'location',
-      title: 'Location',
       type: 'string',
-      validation: (Rule) => Rule.required(),
+      group: 'content',
+      fieldset: 'eventDetails',
+      validation: (Rule) => 
+        Rule.required()
+          .min(3)
+          .error('Location is required and must be at least 3 characters'),
       description: 'Where the event takes place (e.g., "School Gymnasium", "Community Center")',
     }),
     defineField({
-      name: 'isPastEvent',
-      title: 'Is Past Event',
-      type: 'boolean',
-      initialValue: false,
-      description: 'Mark as true if this event has already occurred',
+      name: 'status',
+      type: 'string',
+      group: 'settings',
+      options: {
+        list: [
+          { title: 'Upcoming', value: 'upcoming' },
+          { title: 'Past', value: 'past' },
+          { title: 'Cancelled', value: 'cancelled' },
+        ],
+        layout: 'radio',
+      },
+      initialValue: 'upcoming',
+      validation: (Rule) => 
+        Rule.required()
+          .error('Event status is required for proper categorization'),
+      description: 'Current status of the event for categorization and display',
     }),
     defineField({
       name: 'gallery',
-      title: 'Photo Gallery',
       type: 'array',
+      group: 'media',
       of: [
-        {
+        defineArrayMember({
           type: 'image',
           options: {
             hotspot: true,
           },
           fields: [
-            {
+            defineField({
               name: 'alt',
-              title: 'Alt Text',
               type: 'string',
-              validation: (Rule) => Rule.required(),
+              validation: (Rule) => 
+                Rule.required()
+                  .error('Alt text is required for accessibility compliance'),
               description: 'Describe what is shown in the image for accessibility',
-            },
-            {
+            }),
+            defineField({
               name: 'caption',
-              title: 'Caption',
               type: 'string',
               description: 'Optional caption for the image',
-            },
+            }),
           ],
-        },
+        }),
       ],
-      hidden: ({parent}) => !parent?.isPastEvent,
-      description: 'Upload photos from the event. This is required for past events.',
+      hidden: ({parent}) => parent?.status !== 'past',
+      description: 'Upload photos from the event. Required for past events to showcase activities.',
       validation: (Rule) =>
         Rule.custom((gallery, context) => {
-          const parent = context.parent as { isPastEvent?: boolean }
-          if (parent?.isPastEvent && (!gallery || gallery.length === 0)) {
-            return 'A photo gallery is required for past events.'
+          const parent = context.parent as { status?: string }
+          if (parent?.status === 'past' && (!gallery || gallery.length === 0)) {
+            return 'A photo gallery is required for past events to showcase what happened.'
           }
           return true
         }),
     }),
   ],
+  fieldsets: [
+    {
+      name: 'eventDetails',
+      title: 'Event Details',
+      options: {
+        columns: 2,
+      },
+    },
+  ],
   preview: {
     select: {
       title: 'title',
       date: 'date',
-      isPast: 'isPastEvent',
+      status: 'status',
+      location: 'location',
+      media: 'gallery.0',
     },
     prepare(selection) {
-      const {title, date, isPast} = selection
+      const {title, date, status, location, media} = selection
       const formattedDate = date ? new Date(date).toLocaleDateString() : 'No date'
+      const statusLabel = status === 'past' ? '(Past)' : status === 'cancelled' ? '(Cancelled)' : '(Upcoming)'
+      
       return {
-        title: title,
-        subtitle: `${formattedDate} ${isPast ? '(Past)' : '(Upcoming)'}`,
+        title: title || 'Untitled Event',
+        subtitle: `${formattedDate} • ${location || 'No location'} ${statusLabel}`,
+        media: media,
       }
     },
   },
