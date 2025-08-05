@@ -29,13 +29,20 @@ export default function HeroSection({ title, heroImage }: HeroSectionProps) {
         <div className="absolute inset-0 bg-primary-950/70"></div>
       </div>
       
+      {/* Top-left Title */}
+      <div className="absolute top-4 left-4 text-left">
+        <h2 className="text-lg font-semibold text-white/80">
+          J.R. Arnold High School NJROTC
+        </h2>
+      </div>
+
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gold-400 mb-6 leading-tight">
-          {title}
+          Forging Future Leaders
         </h1>
         <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-          Building tomorrow&apos;s leaders through discipline, honor, and service
+          “Luctor et Emergo” - “I struggle, I Emerge” • “We are marlin company. We are highly motivated, truly dedicated, blue amphibious monsters.”.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
