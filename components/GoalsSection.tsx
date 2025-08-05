@@ -13,29 +13,35 @@ export default function GoalsSection({ title, goals }: GoalsSectionProps) {
           </h2>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {goals?.map((goal, index) => (
-            <div
-              key={index}
-              className="bg-primary-800/50 backdrop-blur-sm rounded-lg p-6 border border-gold-400/20 hover:border-gold-400/40 transition-colors duration-300"
-            >
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0">
-                  <div className="w-8 h-8 bg-gold-400 rounded-full flex items-center justify-center">
-                    <span className="text-primary-950 font-bold text-sm">
-                      {index + 1}
-                    </span>
+        {goals?.length > 1 ? (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {goals.map((goal, index) => (
+              <div
+                key={index}
+                className="bg-primary-800/50 backdrop-blur-sm rounded-lg p-6 border border-gold-400/20 hover:border-gold-400/40 transition-colors duration-300"
+              >
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0">
+                    <div className="w-8 h-8 bg-gold-400 rounded-full flex items-center justify-center">
+                      <span className="text-primary-950 font-bold text-sm">
+                        {index + 1}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-white/90 leading-relaxed">{goal}</p>
                   </div>
                 </div>
-                <div className="flex-1">
-                  <p className="text-white/90 leading-relaxed">
-                    {goal}
-                  </p>
-                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <div className="max-w-4xl mx-auto text-center">
+            <p className="text-lg leading-relaxed text-white/90">
+              {goals?.[0]}
+            </p>
+          </div>
+        )}
       </div>
     </section>
   )
