@@ -26,9 +26,7 @@ export default async function RootLayout({
         <AnalyticsLoader />
         {children}
         <SanityLive />
-        {isEnabled && (
-          <VisualEditing />
-        )}
+        {isEnabled && <VisualEditing />}
       </body>
     </html>
   )

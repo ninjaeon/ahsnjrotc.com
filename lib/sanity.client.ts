@@ -4,11 +4,11 @@ export const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
   apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION!,
-  useCdn: false, // Set to false if statically generating pages, using ISR or tag-based revalidation
+  useCdn: true,
+  token: process.env.SANITY_VIEWER_TOKEN,
   stega: {
-    enabled: process.env.NODE_ENV === 'development',
-    studioUrl: 'https://ahsnjrotc.sanity.studio/',
+    studioUrl: process.env.NEXT_PUBLIC_SANITY_STUDIO_URL,
   },
 })
 
-export const token = process.env.SANITY_API_READ_TOKEN
+export const token = process.env.SANITY_VIEWER_TOKEN

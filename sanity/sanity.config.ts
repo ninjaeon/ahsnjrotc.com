@@ -11,6 +11,7 @@ export default defineConfig({
 
   projectId: process.env.SANITY_STUDIO_PROJECT_ID || '',
   dataset: process.env.SANITY_STUDIO_DATASET || 'production',
+  apiVersion: '2024-05-01',
 
   plugins: [
     structureTool({
@@ -18,6 +19,7 @@ export default defineConfig({
         S.list()
           .title('Content')
           .items([
+            // NJROTC Page (Singleton)
             S.listItem()
               .title('NJROTC Page')
               .id('njrotcPage')
@@ -27,19 +29,23 @@ export default defineConfig({
                   .documentId('njrotcPage')
               ),
             S.divider(),
-            ...S.documentTypeListItems().filter(
-              (listItem) => !['njrotcPage'].includes(listItem.getId()!)
-            ),
+            // Events
+            S.listItem()
+              .title('Events')
+              .schemaType('event')
+              .child(S.documentTypeList('event').title('Events')),
           ])
     }),
     visionTool(),
     presentationTool({
       previewUrl: {
         origin: 'https://ahs-njrotc-v2-web--ahs-njrotc-v2.us-central1.hosted.app',
-        draftMode: {
-          enable: '/api/draft?secret=draft-preview-secret-2024',
+        preview: '/',
+        previewMode: {
+          enable: '/api/draft',
         },
       },
+      allowOrigins: ['https://ahs-njrotc-v2-web--ahs-njrotc-v2.us-central1.hosted.app'],
     }),
   ],
 
