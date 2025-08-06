@@ -18,18 +18,28 @@ export default function CurriculumSection({ title, subjects }: CurriculumSection
           </h2>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 [perspective:1000px]">
           {subjects?.map((subject, index) => (
-            <div
-              key={index}
-              className="bg-primary-800/50 backdrop-blur-sm rounded-lg p-8 border border-gold-400/20 hover:border-gold-400/40 transition-all duration-300 hover:transform hover:scale-105"
-            >
-              <h3 className="text-xl font-bold text-gold-400 mb-4">
-                {subject.subject}
-              </h3>
-              <p className="text-white/90 leading-relaxed">
-                {subject.description}
-              </p>
+            <div key={index} className="flip-card h-64">
+              <div className="flip-card-inner w-full h-full">
+                <div className="flip-card-front bg-primary-800/50 backdrop-blur-sm rounded-lg p-8 border border-gold-400/20">
+                  <h3 className="text-xl font-bold text-gold-400 mb-4">
+                    {subject.subject}
+                  </h3>
+                  <p className="text-white/90 leading-relaxed">
+                    {subject.description}
+                  </p>
+                </div>
+                <div className="flip-card-back bg-primary-800/50 backdrop-blur-sm rounded-lg p-8 border border-gold-400/20">
+                  {subject.subject === 'Naval Science' && (
+                    <img
+                      src="/img/IMG_0236.jpeg"
+                      alt="Naval Science"
+                      className="w-full h-full object-cover rounded-md"
+                    />
+                  )}
+                </div>
+              </div>
             </div>
           ))}
         </div>
