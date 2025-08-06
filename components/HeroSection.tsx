@@ -1,15 +1,9 @@
-import SanityImage from './SanityImage'
+import Image from 'next/image'
 
 interface HeroSectionProps {
   title: string
   mainTitle: string
-  heroImage: {
-    asset: {
-      _ref: string
-      _type: string
-    }
-    alt: string
-  }
+  heroImage: string
 }
 
 export default function HeroSection({
@@ -22,12 +16,13 @@ export default function HeroSection({
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         {heroImage && (
-          <SanityImage
-            image={heroImage}
-            alt={heroImage.alt || 'NJROTC Hero Image'}
-            className="w-full h-full object-cover"
+          <Image
+            src={heroImage}
+            alt="NJROTC Hero Image"
+            layout="fill"
+            objectFit="cover"
+            className="w-full h-full"
             priority
-            sizes="100vw"
           />
         )}
         {/* Overlay */}

@@ -76,7 +76,7 @@ export default async function HomePage() {
       <HeroSection 
         title={data.pageTitle}
         mainTitle="Forging Future Leaders"
-        heroImage={data.heroImage}
+        heroImage="/img/IMG_0236.jpeg"
       />
       
       <GoalsSection 
