@@ -1,10 +1,10 @@
 
-> ahs-njrotc-v2@0.1.0 start
-> next start
+> ahs-njrotc-v2@0.1.0 dev
+> next dev
 
    ▲ Next.js 15.4.5
-   - Local:        http://localhost:3000
-   - Network:      http://192.168.0.2:3000
+   - Local:        http://localhost:3003
+   - Network:      http://192.168.0.2:3003
 
  ✓ Starting...
- ✓ Ready in 533ms
+ ✓ Ready in 3.6s
