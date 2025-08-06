@@ -2,6 +2,7 @@ import { sanityFetch } from '@/lib/sanity.live'
 import { sampleNjrotcData } from '@/lib/sampleData'
 import HeroSection from '@/components/HeroSection'
 import GoalsSection from '@/components/GoalsSection'
+import InstructorSection from '@/components/InstructorSection'
 import BenefitsSection from '@/components/BenefitsSection'
 import CurriculumSection from '@/components/CurriculumSection'
 import EventsSection from '@/components/EventsSection'
@@ -84,6 +85,8 @@ export default async function HomePage() {
         goals={data.programGoals}
       />
       
+      <InstructorSection />
+
       <BenefitsSection 
         title={data.benefitsTitle}
         content={data.benefitsContent}
