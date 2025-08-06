@@ -133,6 +133,21 @@ export const sampleNjrotcData = {
         "/img/IMG_0207.jpeg",
         "/img/IMG_0208.jpeg"
       ]
+    },
+    {
+      _id: "past-3",
+      title: "Annual Military Inspection 2025",
+      description: "The Annual Military Inspection is a formal review of cadets’ appearance, drill, and unit performance by a Navy representative.",
+      date: "2025-02-26T09:00:00.000Z",
+      location: "Arnold High School",
+      isPastEvent: true,
+      gallery: [
+        "/img/IMG_0212.jpeg",
+        "/img/IMG_0213.jpeg",
+        "/img/IMG_0214.jpeg",
+        "/img/IMG_0215.jpeg",
+        "/img/IMG_0216.jpeg"
+      ]
     }
   ],
   contactInfo: {
