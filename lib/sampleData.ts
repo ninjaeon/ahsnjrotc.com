@@ -108,6 +108,14 @@ export const sampleNjrotcData = {
       gallery: []
     },
     {
+      _id: "upcoming-3",
+      title: "Annual Company Cookout",
+      description: "",
+      location: "the Navy Base",
+      isPastEvent: false,
+      gallery: []
+    },
+    {
       _id: "past-1",
       title: "Fall Drill Competition",
       description: "Annual drill team competition showcasing precision movements and military bearing.",
@@ -158,6 +166,18 @@ export const sampleNjrotcData = {
       isPastEvent: true,
       gallery: [
         "/img/IMG_0209.jpeg"
+      ]
+    },
+    {
+      _id: "past-5",
+      title: "Annual Company Cookout",
+      description: "Our annual cookout is a time for cadets to hangout, go for a swim, and enjoy TOP’s famous burgers",
+      date: "2024-11-01T12:00:00.000Z",
+      location: "the Navy Base",
+      isPastEvent: true,
+      gallery: [
+        "/img/IMG_0246.jpeg",
+        "/img/IMG_0245.jpeg"
       ]
     }
   ],
