@@ -24,6 +24,12 @@ export default function CurriculumSection({ title, subjects }: CurriculumSection
     }
   }
 
+  const handleKeyDown = (event: React.KeyboardEvent, index: number) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      handleFlip(index)
+    }
+  }
+
   return (
     <section id="curriculum" className="py-20 px-4 bg-primary-900">
       <div className="max-w-6xl mx-auto">
@@ -37,7 +43,14 @@ export default function CurriculumSection({ title, subjects }: CurriculumSection
           {subjects?.map((subject, index) => {
             if (subject.subject === "Naval Science") {
               return (
-                <div key={index} className="flip-card-container" onClick={() => handleFlip(index)}>
+                <div
+                  key={index}
+                  className="flip-card-container"
+                  onClick={() => handleFlip(index)}
+                  onKeyDown={(e) => handleKeyDown(e, index)}
+                  role="button"
+                  tabIndex={0}
+                >
                   <div className={`flip-card ${flippedCard === index ? 'flipped' : ''}`}>
                     <div className="flip-card-front bg-primary-800/50 backdrop-blur-sm rounded-lg p-8 border border-gold-400/20 hover:border-gold-400/40 transition-all duration-300">
                       <h3 className="text-xl font-bold text-gold-400 mb-4">

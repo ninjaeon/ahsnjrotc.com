@@ -11,10 +11,10 @@ if (!token && typeof window !== 'undefined') {
 // Provide fallback configuration when token is missing during build
 export const { sanityFetch, SanityLive } = defineLive({
   client: client.withConfig({
-    apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION,
+    apiVersion: '2024-05-01',
     useCdn: false, // Disable CDN for live content to ensure fresh data
     stega: {
-      studioUrl: process.env.NEXT_PUBLIC_SANITY_STUDIO_URL,
+      studioUrl: '/studio',
       // Enable stega encoding for Visual Editing overlays
       enabled: false,
     },
