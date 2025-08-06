@@ -16,9 +16,9 @@ export default function InstructorSection() {
             <Image
               src="/img/IMG_0240.jpeg"
               alt="Robert Mcibbin"
-              width={200}
-              height={200}
-              className="rounded-full border-4 border-gold-400"
+              width={250}
+              height={350}
+              className="rounded-lg border-4 border-gold-400"
             />
           </div>
           <p className="text-lg leading-relaxed text-white/90 max-w-2xl">
