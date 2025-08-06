@@ -99,19 +99,10 @@ export const sampleNjrotcData = {
       gallery: []
     },
     {
-      _id: "upcoming-2", 
-      title: "Community Service Day",
-      description: "Cadets volunteer at local community organizations to give back to the community.",
-      date: "2025-02-20T09:00:00.000Z",
-      location: "Various Community Locations",
-      isPastEvent: false,
-      gallery: []
-    },
-    {
       _id: "upcoming-3",
       title: "Annual Company Cookout",
-      description: "",
-      location: "the Navy Base",
+      description: "Our annual cookout is a time for cadets to hangout, go for a swim, and enjoy TOP’s famous burgers",
+      location: "The Navy Base",
       isPastEvent: false,
       gallery: []
     },
@@ -182,7 +173,7 @@ export const sampleNjrotcData = {
       title: "Annual Company Cookout",
       description: "Our annual cookout is a time for cadets to hangout, go for a swim, and enjoy TOP’s famous burgers",
       date: "2024-11-01T12:00:00.000Z",
-      location: "the Navy Base",
+      location: "The Navy Base",
       isPastEvent: true,
       gallery: [
         "/img/IMG_0246.jpeg",

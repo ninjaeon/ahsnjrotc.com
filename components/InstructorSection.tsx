@@ -11,18 +11,18 @@ export default function InstructorSection() {
         </div>
 
         <div className="flex flex-col items-center text-center">
-          <h3 className="text-2xl font-bold text-white mb-4">Robert Mcibbin</h3>
+          <h3 className="text-2xl font-bold text-white mb-4">Robert McKibbin</h3>
           <div className="mb-8">
             <Image
               src="/img/IMG_0240.jpeg"
-              alt="Robert Mcibbin"
+              alt="Robert McKibbin"
               width={250}
               height={350}
               className="rounded-lg border-4 border-gold-400"
             />
           </div>
           <p className="text-lg leading-relaxed text-white/90 max-w-2xl">
-            Robert Mcibbin, also known as “TOP” throughout the unit, is our Naval Science Instructor and our mentor. TOP keeps everything in line and is our biggest motivator.
+            Robert McKibbin, also known as “TOP” throughout the unit, is our Naval Science Instructor and our mentor. TOP keeps everything in line and is our biggest motivator.
           </p>
         </div>
       </div>
