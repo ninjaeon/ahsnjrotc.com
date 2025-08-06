@@ -148,6 +148,17 @@ export const sampleNjrotcData = {
         "/img/IMG_0215.jpeg",
         "/img/IMG_0216.jpeg"
       ]
+    },
+    {
+      _id: "past-4",
+      title: "Beach Clean Up",
+      description: "This beach clean up was one of our many community service events.",
+      date: "2025-04-12T09:00:00.000Z",
+      location: "Community Beach",
+      isPastEvent: true,
+      gallery: [
+        "/img/IMG_0209.jpeg"
+      ]
     }
   ],
   contactInfo: {
