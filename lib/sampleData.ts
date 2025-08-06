@@ -117,12 +117,21 @@ export const sampleNjrotcData = {
     },
     {
       _id: "past-1",
-      title: "Fall Drill Competition",
+      title: "FAMU Drill Competition",
       description: "Annual drill team competition showcasing precision movements and military bearing.",
-      date: "2024-11-10T10:00:00.000Z", 
-      location: "Arnold High School",
+      date: "2025-01-11T10:00:00.000Z",
+      location: "Florida A&M University- FAMU",
       isPastEvent: true,
-      gallery: [] // Would contain photos in real implementation
+      gallery: [
+        "/img/IMG_0244.jpeg",
+        "/img/IMG_0232.jpeg",
+        "/img/IMG_0231.jpeg",
+        "/img/IMG_0230.jpeg",
+        "/img/IMG_0229.jpeg",
+        "/img/IMG_0221.jpeg",
+        "/img/IMG_0219.jpeg",
+        "/img/IMG_0220.jpeg"
+      ]
     },
     {
       _id: "past-2",
