@@ -3,6 +3,7 @@ import { sampleNjrotcData } from '@/lib/sampleData'
 import HeroSection from '@/components/HeroSection'
 import GoalsSection from '@/components/GoalsSection'
 import InstructorSection from '@/components/InstructorSection'
+import StudentLeadershipSection from '@/components/StudentLeadershipSection'
 import BenefitsSection from '@/components/BenefitsSection'
 import CurriculumSection from '@/components/CurriculumSection'
 import EventsSection from '@/components/EventsSection'
@@ -86,17 +87,19 @@ export default async function HomePage() {
       />
       
       <InstructorSection />
-
-      <BenefitsSection 
-        title={data.benefitsTitle}
-        content={data.benefitsContent}
-      />
       
       <CurriculumSection 
         title={data.curriculumTitle}
         subjects={data.curriculumSubjects}
       />
       
+      <StudentLeadershipSection />
+
+      <BenefitsSection
+        title={data.benefitsTitle}
+        content={data.benefitsContent}
+      />
+
       <EventsSection 
         events={data.events || []}
       />
