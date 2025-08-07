@@ -9,7 +9,7 @@ const leadershipTeam = [
   {
     name: 'Ryan Smith',
     image: '/img/IMG_0292.jpeg',
-    description: 'Hi I’m Ryan, I’m the xo, and I make sure everyone’s job is done correctly and efficiently. I also work with the CO and CMC on big projects and ideas for the unit.',
+    description: 'Hi I’m Ryan, I’m the Executive Officer (XO), and I make sure everyone’s job is done correctly and efficiently. I also work with the CO and CMC on big projects and ideas for the unit.',
   },
   {
     name: 'Xander Powell',
@@ -86,6 +86,7 @@ export default function StudentLeadershipSection() {
                   alt={leader.name}
                   layout="fill"
                   objectFit="cover"
+                  objectPosition="top"
                   className="rounded-t-lg"
                 />
               </div>

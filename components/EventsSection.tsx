@@ -180,7 +180,7 @@ function PastEventCard({ event }: { event: Event }) {
             </h5>
             <div className="flex overflow-x-auto space-x-4 pb-4" style={{ scrollSnapType: 'x mandatory' }}>
               {event.gallery.map((photo, index) => (
-                <div key={index} className="flex-shrink-0 w-2/3 md:w-1/3 rounded-lg overflow-hidden" style={{ scrollSnapAlign: 'start' }}>
+                <div key={index} className="flex-shrink-0 w-full md:w-1/2 rounded-lg overflow-hidden" style={{ scrollSnapAlign: 'start' }}>
                   {typeof photo === 'string' ? (
                     <img
                       src={photo}
