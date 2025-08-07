@@ -8,6 +8,15 @@ interface CurriculumSectionProps {
   subjects: CurriculumSubject[]
 }
 
+const subjectImageMapping: { [key: string]: string } = {
+  'Naval Science': '/img/IMG_0236.jpeg',
+  'Leadership and Management': '/img/IMG_0256.jpeg',
+  'Citizenship and Government': '/img/IMG_0252.jpeg',
+  'Naval Operations': '/img/IMG_0262.jpeg',
+  'Military Drill and Ceremonies': '/img/IMG_0260.jpeg',
+  'Physical Fitness': '/img/IMG_0259.jpeg',
+}
+
 export default function CurriculumSection({ title, subjects }: CurriculumSectionProps) {
   return (
     <section id="curriculum" className="py-20 px-4 bg-primary-900">
@@ -30,44 +39,14 @@ export default function CurriculumSection({ title, subjects }: CurriculumSection
                     {subject.description}
                   </p>
                 </div>
-                <div className="flip-card-back bg-primary-800/50 backdrop-blur-sm rounded-lg p-8 border border-gold-400/20">
-                  {subject.subject === 'Naval Science' ? (
+                <div className="flip-card-back bg-primary-800/50 backdrop-blur-sm rounded-lg border border-gold-400/20">
+                  {subjectImageMapping[subject.subject] && (
                     <img
-                      src="/img/IMG_0236.jpeg"
-                      alt="Naval Science"
-                      className="w-full h-full object-cover rounded-md"
+                      src={subjectImageMapping[subject.subject]}
+                      alt={subject.subject}
+                      className="w-full h-full object-cover rounded-lg"
                     />
-                  ) : subject.subject === 'Leadership and Management' ? (
-                    <img
-                      src="/img/IMG_0256.jpeg"
-                      alt="Leadership and Management"
-                      className="w-full h-full object-cover rounded-md"
-                    />
-                  ) : subject.subject === 'Citizenship and Government' ? (
-                    <img
-                      src="/img/IMG_0252.jpeg"
-                      alt="Citizenship and Government"
-                      className="w-full h-full object-cover rounded-md"
-                    />
-                  ) : subject.subject === 'Naval Operations' ? (
-                    <img
-                      src="/img/IMG_0262.jpeg"
-                      alt="Naval Operations"
-                      className="w-full h-full object-cover rounded-md"
-                    />
-                  ) : subject.subject === 'Military Drill and Ceremonies' ? (
-                    <img
-                      src="/img/IMG_0260.jpeg"
-                      alt="Military Drill and Ceremonies"
-                      className="w-full h-full object-cover rounded-md"
-                    />
-                  ) : subject.subject === 'Physical Fitness' ? (
-                    <img
-                      src="/img/IMG_0259.jpeg"
-                      alt="Physical Fitness"
-                      className="w-full h-full object-cover rounded-md"
-                    />
-                  ) : null}
+                  )}
                 </div>
               </div>
             </div>
