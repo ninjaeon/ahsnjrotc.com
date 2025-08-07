@@ -31,13 +31,43 @@ export default function CurriculumSection({ title, subjects }: CurriculumSection
                   </p>
                 </div>
                 <div className="flip-card-back bg-primary-800/50 backdrop-blur-sm rounded-lg p-8 border border-gold-400/20">
-                  {subject.subject === 'Naval Science' && (
+                  {subject.subject === 'Naval Science' ? (
                     <img
                       src="/img/IMG_0236.jpeg"
                       alt="Naval Science"
                       className="w-full h-full object-cover rounded-md"
                     />
-                  )}
+                  ) : subject.subject === 'Leadership and Management' ? (
+                    <img
+                      src="/img/IMG_0256.jpeg"
+                      alt="Leadership and Management"
+                      className="w-full h-full object-cover rounded-md"
+                    />
+                  ) : subject.subject === 'Citizenship and Government' ? (
+                    <img
+                      src="/img/IMG_0252.jpeg"
+                      alt="Citizenship and Government"
+                      className="w-full h-full object-cover rounded-md"
+                    />
+                  ) : subject.subject === 'Naval Operations' ? (
+                    <img
+                      src="/img/IMG_0262.jpeg"
+                      alt="Naval Operations"
+                      className="w-full h-full object-cover rounded-md"
+                    />
+                  ) : subject.subject === 'Military Drill and Ceremonies' ? (
+                    <img
+                      src="/img/IMG_0260.jpeg"
+                      alt="Military Drill and Ceremonies"
+                      className="w-full h-full object-cover rounded-md"
+                    />
+                  ) : subject.subject === 'Physical Fitness' ? (
+                    <img
+                      src="/img/IMG_0259.jpeg"
+                      alt="Physical Fitness"
+                      className="w-full h-full object-cover rounded-md"
+                    />
+                  ) : null}
                 </div>
               </div>
             </div>
