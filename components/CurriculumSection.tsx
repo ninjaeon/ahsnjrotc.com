@@ -10,10 +10,10 @@ interface CurriculumSectionProps {
 
 const subjectImageMapping: { [key: string]: string } = {
   'Naval Science': '/img/IMG_0236.jpeg',
-  'Leadership and Management': '/img/IMG_0256.jpeg',
-  'Citizenship and Government': '/img/IMG_0252.jpeg',
+  'Leadership & Management': '/img/IMG_0256.jpeg',
+  'Citizenship & Government': '/img/IMG_0252.jpeg',
   'Naval Operations': '/img/IMG_0262.jpeg',
-  'Military Drill and Ceremonies': '/img/IMG_0260.jpeg',
+  'Military Drill & Ceremonies': '/img/IMG_0260.jpeg',
   'Physical Fitness': '/img/IMG_0259.jpeg',
 }
 
