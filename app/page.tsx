@@ -6,6 +6,7 @@ import StudentLeadershipSection from '@/components/StudentLeadershipSection'
 import BenefitsSection from '@/components/BenefitsSection'
 import CurriculumSection from '@/components/CurriculumSection'
 import EventsSection from '@/components/EventsSection'
+import NewsletterSection from '@/components/NewsletterSection'
 import Footer from '@/components/Footer'
 
 export default function HomePage() {
@@ -41,6 +42,8 @@ export default function HomePage() {
       <EventsSection 
         events={data.events || []}
       />
+
+      <NewsletterSection />
       
       <Footer 
         contactInfo={data.contactInfo}
