@@ -85,7 +85,7 @@ const NewsletterSection = () => {
               </button>
             </div>
             <p className="mt-6 text-sm text-white/70">
-              We won't send you spam. Unsubscribe at any time.
+              We won&apos;t send you spam. Unsubscribe at any time.
             </p>
           </form>
 
