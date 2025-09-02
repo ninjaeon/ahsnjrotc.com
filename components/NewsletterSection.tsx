@@ -41,44 +41,57 @@ const NewsletterSection = () => {
       }}
     >
       <div className="max-w-4xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-8">Subscribe to our Newsletter</h2>
-        {/* Fallback native form (works even if scripts are blocked). Hidden when enhanced embed loads. */}
-        <form
-          action="https://app.kit.com/forms/8505984/subscriptions"
-          method="post"
-          className={`mx-auto max-w-xl ${enhanced ? 'hidden' : ''}`}
-        >
-          <div className="flex flex-col sm:flex-row gap-3">
-            <label className="sr-only" htmlFor="ck-first-name">First name</label>
-            <input
-              id="ck-first-name"
-              type="text"
-              name="fields[first_name]"
-              autoComplete="given-name"
-              placeholder="First name"
-              className="flex-1 px-4 py-3 rounded border border-gray-300 bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
-            />
-            <label className="sr-only" htmlFor="ck-email">Email</label>
-            <input
-              id="ck-email"
-              type="email"
-              name="email_address"
-              required
-              autoComplete="email"
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded border border-gray-300 bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
-            />
-            <button
-              type="submit"
-              className="px-6 py-3 rounded bg-primary-600 text-white font-semibold hover:bg-primary-500"
-            >
-              Subscribe
-            </button>
-          </div>
-        </form>
+        <div className="mx-auto max-w-2xl rounded-2xl bg-primary-950/90 backdrop-blur shadow-2xl border border-white/10 p-8 sm:p-10 text-center">
+          <h2 className="text-3xl md:text-5xl font-extrabold !text-white drop-shadow-md mb-4">
+            Sign Up to Get the Company Chronicles
+          </h2>
+          <p className="text-base md:text-lg text-white/80 mb-8">
+            Sign up for our monthly newsletter.
+          </p>
 
-        {/* Container where the ConvertKit script will render when allowed */}
-        <div ref={containerRef} aria-live="polite" />
+          {/* Fallback native form (works even if scripts are blocked). Hidden when enhanced embed loads. */}
+          <form
+            action="https://app.kit.com/forms/8505984/subscriptions"
+            method="post"
+            className={`mx-auto max-w-xl ${enhanced ? 'hidden' : ''}`}
+          >
+            <div className="flex flex-col gap-3 text-left">
+              <label className="sr-only" htmlFor="ck-email">Email Address</label>
+              <input
+                id="ck-email"
+                type="email"
+                name="email_address"
+                required
+                autoComplete="email"
+                placeholder="Email Address"
+                className="w-full px-4 py-3 rounded-lg border border-gray-700 bg-gray-900 text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              />
+
+              <label className="sr-only" htmlFor="ck-first-name">First Name</label>
+              <input
+                id="ck-first-name"
+                type="text"
+                name="fields[first_name]"
+                autoComplete="given-name"
+                placeholder="First Name"
+                className="w-full px-4 py-3 rounded-lg border border-gray-700 bg-gray-900 text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              />
+
+              <button
+                type="submit"
+                className="w-full px-6 py-3 rounded-lg bg-purple-700 text-white font-semibold hover:bg-purple-600 focus:ring-2 focus:ring-purple-500"
+              >
+                Sign Up for Our Newsletter
+              </button>
+            </div>
+            <p className="mt-6 text-sm text-white/70">
+              We won't send you spam. Unsubscribe at any time.
+            </p>
+          </form>
+
+          {/* Container where the ConvertKit script will render when allowed */}
+          <div ref={containerRef} aria-live="polite" className="mt-2" />
+        </div>
       </div>
     </section>
   );
