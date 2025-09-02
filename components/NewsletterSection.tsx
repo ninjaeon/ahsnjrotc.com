@@ -4,8 +4,32 @@ import React from 'react';
 const NewsletterSection = () => {
   const containerRef = React.useRef<HTMLDivElement | null>(null)
   const [enhanced, setEnhanced] = React.useState(false)
+  const [isOpen, setIsOpen] = React.useState(true)
+  const closeBtnRef = React.useRef<HTMLButtonElement | null>(null)
+
+  // Lock body scroll while modal is open
+  React.useEffect(() => {
+    if (isOpen) {
+      const prev = document.body.style.overflow
+      document.body.style.overflow = 'hidden'
+      return () => {
+        document.body.style.overflow = prev
+      }
+    }
+  }, [isOpen])
+
+  // Close on Escape key while open
+  React.useEffect(() => {
+    if (!isOpen) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsOpen(false)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [isOpen])
 
   React.useEffect(() => {
+    if (!isOpen) return
     const el = containerRef.current
     if (!el) return
     // Avoid duplicate injects (e.g., Fast Refresh)
@@ -28,21 +52,43 @@ const NewsletterSection = () => {
       setEnhanced(false)
       el.innerHTML = ''
     }
-  }, [])
+  }, [isOpen])
+
+  if (!isOpen) return null
 
   return (
-    <section
-      className="relative py-16"
-      style={{
-        backgroundImage: "url('/img/arnoldnjrotc-logo.jpeg')",
-        backgroundRepeat: 'repeat-x',
-        backgroundSize: 'auto',
-        backgroundPosition: 'center',
-      }}
+    <div
+      className="fixed inset-0 z-50"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="newsletter-modal-title"
     >
-      <div className="max-w-4xl mx-auto px-4">
-        <div className="mx-auto max-w-2xl rounded-2xl bg-primary-950/90 backdrop-blur shadow-2xl border border-white/10 p-8 sm:p-10 text-center">
-          <h2 className="text-3xl md:text-5xl font-extrabold !text-white drop-shadow-md mb-4">
+      <div
+        className="absolute inset-0 bg-black/70"
+        role="button"
+        aria-label="Close newsletter signup"
+        tabIndex={0}
+        onClick={() => setIsOpen(false)}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape') {
+            e.preventDefault()
+            setIsOpen(false)
+          }
+        }}
+      />
+      <div className="relative z-10 flex min-h-full items-center justify-center p-4">
+        <div className="relative mx-auto max-w-2xl w-full rounded-2xl bg-primary-950/90 backdrop-blur shadow-2xl border border-white/10 p-8 sm:p-10 text-center">
+          <button
+            type="button"
+            aria-label="Close"
+            className="absolute right-3 top-3 text-white/80 hover:text-white"
+            onClick={() => setIsOpen(false)}
+            ref={closeBtnRef}
+            autoFocus
+          >
+            &times;
+          </button>
+          <h2 id="newsletter-modal-title" className="text-3xl md:text-5xl font-extrabold !text-white drop-shadow-md mb-4">
             Sign Up to Get the Company Chronicles
           </h2>
           <p className="text-base md:text-lg text-white/80 mb-8">
@@ -93,7 +139,7 @@ const NewsletterSection = () => {
           <div ref={containerRef} aria-live="polite" className="mt-2" />
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
