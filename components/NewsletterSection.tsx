@@ -1,13 +1,14 @@
- 'use client'
-import React, { useEffect, useRef } from 'react';
+"use client"
+import React from 'react';
 
 const NewsletterSection = () => {
-  const containerRef = useRef<HTMLDivElement>(null)
+  const containerRef = React.useRef<HTMLDivElement | null>(null)
 
-  useEffect(() => {
-    if (!containerRef.current) return
+  React.useEffect(() => {
+    const el = containerRef.current
+    if (!el) return
     // Avoid duplicate injects (e.g., Fast Refresh)
-    if (containerRef.current.querySelector('form')) return
+    if (el.querySelector('form')) return
 
     const script = document.createElement('script')
     script.src = 'https://ahsnjrotc.kit.com/a89e921039/index.js'
@@ -15,10 +16,15 @@ const NewsletterSection = () => {
     script.setAttribute('data-uid', 'a89e921039')
     // Ensure inline render (not modal/slide-in/sticky)
     script.setAttribute('data-options', JSON.stringify({ format: 'inline' }))
-    containerRef.current.appendChild(script)
+    script.crossOrigin = 'anonymous'
+    script.onerror = () => {
+      // Helpful console signal when blocked by CSP/extension/network
+      console.error('Kit embed failed to load. Check CSP/extension/network. URL:', script.src)
+    }
+    el.appendChild(script)
 
     return () => {
-      if (containerRef.current) containerRef.current.innerHTML = ''
+      el.innerHTML = ''
     }
   }, [])
 

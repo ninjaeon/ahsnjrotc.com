@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 interface CurriculumSubject {
   subject: string
   description: string
@@ -39,12 +41,14 @@ export default function CurriculumSection({ title, subjects }: CurriculumSection
                     {subject.description}
                   </p>
                 </div>
-                <div className="flip-card-back bg-primary-800/50 backdrop-blur-sm rounded-lg border border-gold-400/20">
+                <div className="flip-card-back bg-primary-800/50 backdrop-blur-sm rounded-lg border border-gold-400/20 relative">
                   {subjectImageMapping[subject.subject] && (
-                    <img
+                    <Image
                       src={subjectImageMapping[subject.subject]}
                       alt={subject.subject}
-                      className="w-full h-full object-cover rounded-lg"
+                      fill
+                      className="object-cover rounded-lg"
+                      sizes="(max-width: 768px) 100vw, 50vw"
                     />
                   )}
                 </div>

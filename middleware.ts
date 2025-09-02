@@ -10,6 +10,29 @@ export function middleware(request: NextRequest, event: NextFetchEvent) {
   response.headers.set('Access-Control-Allow-Methods', 'GET,OPTIONS')
   response.headers.set('Access-Control-Allow-Headers', 'Accept, Content-Type, Origin')
   response.headers.set('Access-Control-Expose-Headers', 'X-Draft-Mode-Enabled')
+
+  // Content Security Policy: allow kit.com / convertkit resources and core app domains
+  // Note: If the hosting platform already sets a CSP header, browsers enforce the intersection
+  // of all CSPs. Ensure the platform policy is compatible with this one.
+  const csp = [
+    "default-src 'self';",
+    // Next.js may use inline snippets; Kit loads from kit.com + f.convertkit.com
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://ahsnjrotc.kit.com https://f.convertkit.com;",
+    "style-src 'self' 'unsafe-inline';",
+    // Allow local images and remote over https plus data URIs
+    "img-src 'self' data: https:;",
+    "font-src 'self' data:;",
+    // Allow API/analytics and kit connections as needed
+    "connect-src 'self' https://ahsnjrotc.sanity.studio https://cdn.sanity.io https://apicdn.sanity.io https://www.google-analytics.com https://region1.google-analytics.com https://f.convertkit.com https://ahsnjrotc.kit.com https://app.kit.com;",
+    // In case kit uses iframes in some formats
+    "frame-src 'self' https://ahsnjrotc.kit.com https://kit.com https://app.kit.com;",
+    // Form submissions post to app.kit.com
+    "form-action 'self' https://app.kit.com;",
+    "base-uri 'self';",
+    "object-src 'none';",
+  ].join(' ')
+
+  response.headers.set('Content-Security-Policy', csp)
   
   // Set cookie SameSite attribute to None for iframe compatibility
   // This is important for Visual Editing to work in the Studio iframe

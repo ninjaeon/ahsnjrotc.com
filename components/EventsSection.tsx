@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import SanityImage from './SanityImage'
 
 // The 'SanityImageObject' represents the structure of an image object from Sanity
@@ -180,12 +181,14 @@ function PastEventCard({ event }: { event: Event }) {
             </h5>
             <div className="flex overflow-x-auto space-x-4 pb-4" style={{ scrollSnapType: 'x mandatory' }}>
               {event.gallery.map((photo, index) => (
-                <div key={index} className="flex-shrink-0 w-full md:w-1/2 rounded-lg overflow-hidden" style={{ scrollSnapAlign: 'start' }}>
+                <div key={index} className="flex-shrink-0 w-full md:w-1/2 rounded-lg overflow-hidden relative" style={{ scrollSnapAlign: 'start' }}>
                   {typeof photo === 'string' ? (
-                    <img
+                    <Image
                       src={photo}
                       alt={`${event.title} photo ${index + 1}`}
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 50vw"
                     />
                   ) : (
                     <SanityImage
