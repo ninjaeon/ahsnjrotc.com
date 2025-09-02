@@ -24,21 +24,7 @@ const NewsletterSection = () => {
     }
     el.appendChild(script)
 
-    // Graceful fallback if embed doesn't render a <form> within 5s
-    const t = window.setTimeout(() => {
-      if (!el.querySelector('form')) {
-        const a = document.createElement('a')
-        a.href = 'https://app.kit.com/forms/8505984/subscriptions'
-        a.target = '_blank'
-        a.rel = 'noopener noreferrer'
-        a.textContent = 'Subscribe to our newsletter'
-        a.className = 'inline-block px-4 py-2 bg-primary-600 text-white rounded hover:bg-primary-500'
-        el.appendChild(a)
-      }
-    }, 5000)
-
     return () => {
-      window.clearTimeout(t)
       setEnhanced(false)
       el.innerHTML = ''
     }
