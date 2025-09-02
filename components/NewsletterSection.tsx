@@ -4,8 +4,55 @@ import React from 'react';
 const NewsletterSection = () => {
   const containerRef = React.useRef<HTMLDivElement | null>(null)
   const [enhanced, setEnhanced] = React.useState(false)
-  const [isOpen, setIsOpen] = React.useState(true)
+  const [isOpen, setIsOpen] = React.useState(false)
   const closeBtnRef = React.useRef<HTMLButtonElement | null>(null)
+
+  const SUPPRESS_KEY = 'newsletter-suppressed-until'
+  const SIGNEDUP_KEY = 'newsletter-signed-up'
+
+  // Decide whether to open on first load
+  React.useEffect(() => {
+    // 1) Detect ConvertKit redirect params and permanently suppress
+    try {
+      const params = new URLSearchParams(window.location.search)
+      const ckKeys = ['ck_subscriber_id', 'ck_subscribed', 'ck_confirmed']
+      const hasCk = ckKeys.some((k) => params.has(k))
+      if (hasCk) {
+        localStorage.setItem(SIGNEDUP_KEY, 'true')
+        // Clean URL
+        const cleanUrl = window.location.pathname + window.location.hash
+        window.history.replaceState({}, '', cleanUrl)
+        setIsOpen(false)
+        return
+      }
+    } catch {}
+
+    // 2) If permanently signed up, never show again
+    try {
+      if (localStorage.getItem(SIGNEDUP_KEY) === 'true') {
+        setIsOpen(false)
+        return
+      }
+    } catch {}
+
+    // 3) Respect 7-day suppression after first appearance
+    try {
+      const now = Date.now()
+      const suppressUntilStr = localStorage.getItem(SUPPRESS_KEY)
+      const suppressUntil = suppressUntilStr ? parseInt(suppressUntilStr, 10) : 0
+      if (suppressUntil > now) {
+        setIsOpen(false)
+        return
+      }
+      // Show and set next suppression
+      setIsOpen(true)
+      const sevenDaysMs = 7 * 24 * 60 * 60 * 1000
+      localStorage.setItem(SUPPRESS_KEY, String(now + sevenDaysMs))
+    } catch {
+      // If localStorage blocked, just open
+      setIsOpen(true)
+    }
+  }, [])
 
   // Lock body scroll while modal is open
   React.useEffect(() => {
@@ -35,6 +82,12 @@ const NewsletterSection = () => {
     // Avoid duplicate injects (e.g., Fast Refresh)
     if (el.querySelector('form')) return
 
+    const onEmbeddedSubmit = () => {
+      try { localStorage.setItem(SIGNEDUP_KEY, 'true') } catch {}
+      setIsOpen(false)
+    }
+    el.addEventListener('submit', onEmbeddedSubmit, true)
+
     const script = document.createElement('script')
     script.src = 'https://f.convertkit.com/a89e921039.js'
     script.async = true
@@ -49,6 +102,7 @@ const NewsletterSection = () => {
     el.appendChild(script)
 
     return () => {
+      el.removeEventListener('submit', onEmbeddedSubmit, true)
       setEnhanced(false)
       el.innerHTML = ''
     }
@@ -64,7 +118,7 @@ const NewsletterSection = () => {
       aria-labelledby="newsletter-modal-title"
     >
       <div
-        className="absolute inset-0 bg-black/70"
+        className="absolute inset-0"
         role="button"
         aria-label="Close newsletter signup"
         tabIndex={0}
@@ -74,6 +128,13 @@ const NewsletterSection = () => {
             e.preventDefault()
             setIsOpen(false)
           }
+        }}
+        style={{
+          // Dark translucent overlay on top of the tiled logo background
+          backgroundImage: "linear-gradient(rgba(0,0,0,0.70), rgba(0,0,0,0.70)), url('/img/arnoldnjrotc-logo.jpeg')",
+          backgroundRepeat: 'no-repeat, repeat-x',
+          backgroundSize: 'cover, auto',
+          backgroundPosition: 'center, center',
         }}
       />
       <div className="relative z-10 flex min-h-full items-center justify-center p-4">
@@ -100,6 +161,10 @@ const NewsletterSection = () => {
             action="https://app.kit.com/forms/8505984/subscriptions"
             method="post"
             className={`mx-auto max-w-xl ${enhanced ? 'hidden' : ''}`}
+            onSubmit={() => {
+              try { localStorage.setItem(SIGNEDUP_KEY, 'true') } catch {}
+              setIsOpen(false)
+            }}
           >
             <div className="flex flex-col gap-3 text-left">
               <label className="sr-only" htmlFor="ck-email">Email Address</label>
