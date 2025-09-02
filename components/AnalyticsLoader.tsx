@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { getFirebaseApp } from '@/lib/firebaseClient'
+import { getFirebaseApp, firebaseMeasurementId } from '@/lib/firebaseClient'
 import { getAnalytics, isSupported } from 'firebase/analytics'
 
 /**
@@ -20,7 +20,8 @@ export default function AnalyticsLoader() {
     // Only load analytics if the browser supports it (safari private etc.)
     isSupported()
       .then((supported) => {
-        if (supported) {
+        // Only initialize analytics when browser supports it AND a measurement ID is present.
+        if (supported && firebaseMeasurementId) {
           const app = getFirebaseApp()
           getAnalytics(app)
         }

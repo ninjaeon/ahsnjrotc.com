@@ -16,6 +16,8 @@ const firebaseConfig = {
   storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET as string,
   messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID as string,
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID as string,
+  // Optional: used by Firebase Analytics. If absent, we will not initialize analytics.
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID as string | undefined,
 }
 
 /**
@@ -25,3 +27,5 @@ const firebaseConfig = {
 export function getFirebaseApp(): FirebaseApp {
   return getApps().length ? getApp() : initializeApp(firebaseConfig)
 }
+
+export const firebaseMeasurementId = firebaseConfig.measurementId

@@ -17,15 +17,15 @@ export function middleware(request: NextRequest, event: NextFetchEvent) {
   const csp = [
     "default-src 'self';",
     // Next.js may use inline snippets; Kit loads from kit.com + f.convertkit.com
-    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://ahsnjrotc.kit.com https://f.convertkit.com;",
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://ahsnjrotc.kit.com https://kit.com https://app.kit.com https://f.convertkit.com https://www.googletagmanager.com;",
     "style-src 'self' 'unsafe-inline';",
-    // Allow local images and remote over https plus data URIs
-    "img-src 'self' data: https:;",
+    // Allow local images and remote over https plus data and blob URIs
+    "img-src 'self' data: blob: https:;",
     "font-src 'self' data:;",
-    // Allow API/analytics and kit connections as needed
-    "connect-src 'self' https://ahsnjrotc.sanity.studio https://cdn.sanity.io https://apicdn.sanity.io https://www.google-analytics.com https://region1.google-analytics.com https://f.convertkit.com https://ahsnjrotc.kit.com https://app.kit.com;",
+    // Allow API/analytics, kit connections, and Firebase endpoints
+    "connect-src 'self' https://ahsnjrotc.sanity.studio https://cdn.sanity.io https://apicdn.sanity.io https://www.google-analytics.com https://region1.google-analytics.com https://f.convertkit.com https://ahsnjrotc.kit.com https://kit.com https://app.kit.com https://firebase.googleapis.com https://firebaseinstallations.googleapis.com https://firebaselogging.googleapis.com https://firestore.googleapis.com https://identitytoolkit.googleapis.com;",
     // In case kit uses iframes in some formats
-    "frame-src 'self' https://ahsnjrotc.kit.com https://kit.com https://app.kit.com;",
+    "frame-src 'self' https://ahsnjrotc.kit.com https://kit.com https://app.kit.com https://f.convertkit.com;",
     // Form submissions post to app.kit.com
     "form-action 'self' https://app.kit.com;",
     "base-uri 'self';",
