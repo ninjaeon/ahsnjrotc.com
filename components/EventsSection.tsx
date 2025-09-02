@@ -26,6 +26,18 @@ interface EventsSectionProps {
   events: Event[]
 }
 
+// Consistent date formatting with a friendly fallback
+function formatEventDate(dateStr?: string) {
+  if (!dateStr) return 'Date TBD'
+  const d = new Date(dateStr)
+  if (isNaN(d.getTime())) return 'Date TBD'
+  return d.toLocaleDateString(undefined, {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  })
+}
+
 export default function EventsSection({ events }: EventsSectionProps) {
   const upcomingEvents = events?.filter(event => !event.isPastEvent) || []
   const pastEvents = events?.filter(event => event.isPastEvent) || []
@@ -80,7 +92,7 @@ export default function EventsSection({ events }: EventsSectionProps) {
 }
 
 function EventCard({ event }: { event: Event }) {
-  const eventDate = event.date ? new Date(event.date) : null
+  const formattedDate = formatEventDate(event.date)
   
   return (
     <div className="bg-primary-800/50 backdrop-blur-sm rounded-lg overflow-hidden border border-gold-400/20 hover:border-gold-400/40 transition-colors duration-300">
@@ -89,11 +101,7 @@ function EventCard({ event }: { event: Event }) {
           <h4 className="text-xl font-bold text-gold-400 flex-1">
             {event.title}
           </h4>
-          {eventDate && (
-            <div className="text-sm text-white/70 ml-4">
-              {eventDate.toLocaleDateString()}
-            </div>
-          )}
+          <div className="text-sm text-white/70 ml-4">{formattedDate}</div>
         </div>
         
         <p className="text-white/90 mb-4 leading-relaxed">
@@ -129,7 +137,7 @@ function EventCard({ event }: { event: Event }) {
 }
 
 function PastEventCard({ event }: { event: Event }) {
-  const eventDate = event.date ? new Date(event.date) : null
+  const formattedDate = formatEventDate(event.date)
   
   return (
     <div className="bg-primary-800/50 backdrop-blur-sm rounded-lg overflow-hidden border border-gold-400/20">
@@ -138,11 +146,7 @@ function PastEventCard({ event }: { event: Event }) {
           <h4 className="text-xl font-bold text-gold-400 flex-1">
             {event.title}
           </h4>
-          {eventDate && (
-            <div className="text-sm text-white/70 ml-4">
-              {eventDate.toLocaleDateString()}
-            </div>
-          )}
+          <div className="text-sm text-white/70 ml-4">{formattedDate}</div>
         </div>
         
         <p className="text-white/90 mb-4 leading-relaxed">

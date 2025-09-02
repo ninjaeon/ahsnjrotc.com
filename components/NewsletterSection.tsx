@@ -31,7 +31,15 @@ const NewsletterSection = () => {
   }, [])
 
   return (
-    <section className="bg-gray-100 py-16">
+    <section
+      className="relative py-16"
+      style={{
+        backgroundImage: "url('/img/arnoldnjrotc-logo.jpeg')",
+        backgroundRepeat: 'repeat-x',
+        backgroundSize: 'auto',
+        backgroundPosition: 'center',
+      }}
+    >
       <div className="max-w-4xl mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-8">Subscribe to our Newsletter</h2>
         {/* Fallback native form (works even if scripts are blocked). Hidden when enhanced embed loads. */}
@@ -41,14 +49,24 @@ const NewsletterSection = () => {
           className={`mx-auto max-w-xl ${enhanced ? 'hidden' : ''}`}
         >
           <div className="flex flex-col sm:flex-row gap-3">
+            <label className="sr-only" htmlFor="ck-first-name">First name</label>
+            <input
+              id="ck-first-name"
+              type="text"
+              name="fields[first_name]"
+              autoComplete="given-name"
+              placeholder="First name"
+              className="flex-1 px-4 py-3 rounded border border-gray-300 bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+            />
             <label className="sr-only" htmlFor="ck-email">Email</label>
             <input
               id="ck-email"
               type="email"
               name="email_address"
               required
+              autoComplete="email"
               placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-500"
+              className="flex-1 px-4 py-3 rounded border border-gray-300 bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
             />
             <button
               type="submit"
