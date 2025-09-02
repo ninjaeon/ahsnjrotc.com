@@ -1,6 +1,34 @@
 import Image from 'next/image'
 import { useNextSanityImage } from 'next-sanity-image'
-import { client } from '@/lib/sanity.client'
+import { createClient } from 'next-sanity'
+
+type SanityNextImageProps = {
+  src: string
+  loader?: (opts: { src: string; width: number; quality?: number }) => string
+  width?: number
+  height?: number
+  blurDataURL?: string
+} | null
+
+type MinimalSanityClient = {
+  config: () => { projectId: string; dataset: string; apiVersion?: string }
+}
+
+function getSafeClient(): MinimalSanityClient {
+  const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
+  const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET
+  const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION ?? '2024-05-01'
+
+  if (projectId && dataset) {
+    // Cast to MinimalSanityClient to avoid pulling in full types
+    return createClient({ projectId, dataset, apiVersion, useCdn: true }) as unknown as MinimalSanityClient
+  }
+
+  // Fallback shim to satisfy libraries during local builds without env vars
+  return {
+    config: () => ({ projectId: projectId ?? 'dummy', dataset: dataset ?? 'production', apiVersion })
+  }
+}
 
 interface SanityImageProps {
   image: {
@@ -18,7 +46,7 @@ interface SanityImageProps {
       left: number
       right: number
     }
-  } | null
+  }
   alt: string
   className?: string
   priority?: boolean
@@ -32,8 +60,14 @@ export default function SanityImage({
   priority = false,
   sizes = '(max-width: 768px) 100vw, 50vw',
 }: SanityImageProps) {
-  // Graceful fallback if image is missing
-  if (!image || !image.asset?._ref) {
+  // Always call the hook (rules-of-hooks) with a safe client instance.
+  type HookClientType = Parameters<typeof useNextSanityImage>[0]
+  const safeClient = getSafeClient() as unknown as HookClientType
+  const imageProps = useNextSanityImage(safeClient, image) as SanityNextImageProps
+
+  const isValid = Boolean(image?.asset?._ref && imageProps?.src)
+
+  if (!isValid) {
     return (
       <div className={`bg-primary-800 flex items-center justify-center ${className}`}>
         <span className="text-gold-400">{alt}</span>
@@ -41,18 +75,14 @@ export default function SanityImage({
     )
   }
 
-  // Generate Next.js-compatible props via next-sanity-image
-  const imageProps = useNextSanityImage(client, image) as any
-
   return (
     <Image
-      // Use Sanity CDN with loader from next-sanity-image
-      {...imageProps}
+      {...imageProps!}
       alt={alt}
-      // Fill container to behave like object-cover backgrounds
       fill
       sizes={sizes}
       priority={priority}
+      placeholder={imageProps?.blurDataURL ? 'blur' : 'empty'}
       className={`object-cover ${className}`}
     />
   )
