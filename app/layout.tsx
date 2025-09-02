@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import Script from 'next/script'
 import AnalyticsLoader from '@/components/AnalyticsLoader'
 import './globals.css'
 
@@ -21,11 +20,6 @@ export default function RootLayout({
       <body className={inter.className}>
         <AnalyticsLoader />
         {children}
-        <Script
-          async
-          data-uid="a89e921039"
-          src="https://ahsnjrotc.kit.com/a89e921039/index.js"
-        />
       </body>
     </html>
   )
