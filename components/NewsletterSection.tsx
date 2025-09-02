@@ -131,14 +131,14 @@ const NewsletterSection = () => {
         }}
         style={{
           // Dark translucent overlay on top of the tiled logo background
-          backgroundImage: "linear-gradient(rgba(0,0,0,0.70), rgba(0,0,0,0.70)), url('/img/arnoldnjrotc-logo.jpeg')",
+          backgroundImage: "linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('/img/arnoldnjrotc-logo.jpeg')",
           backgroundRepeat: 'no-repeat, repeat-x',
           backgroundSize: 'cover, auto',
           backgroundPosition: 'center, center',
         }}
       />
       <div className="relative z-10 flex min-h-full items-center justify-center p-4">
-        <div className="relative mx-auto max-w-2xl w-full rounded-2xl bg-primary-950/90 backdrop-blur shadow-2xl border border-white/10 p-8 sm:p-10 text-center">
+        <div className="relative mx-auto max-w-2xl w-full rounded-2xl bg-primary-950/50 backdrop-blur-xl backdrop-saturate-150 shadow-2xl ring-1 ring-white/20 p-8 sm:p-10 text-center">
           <button
             type="button"
             aria-label="Close"
