@@ -127,10 +127,10 @@ const NewsletterSection = () => {
         <div className="relative z-10 flex min-h-full items-center justify-center p-4">
           <div className="relative mx-auto max-w-lg w-full rounded-2xl bg-primary-950/30 backdrop-blur-xl backdrop-saturate-150 shadow-2xl ring-1 ring-white/15 p-8 sm:p-10 text-center">
             <h2 id="newsletter-success-title" className="text-2xl md:text-3xl font-extrabold !text-white drop-shadow mb-2">
-              You're all set!
+              You&apos;re all set!
             </h2>
             <p className="text-base md:text-lg text-white/80">
-              We'll take you back to the homepage in just a moment — thanks for joining the Company Chronicles.
+              We&apos;ll take you back to the homepage in just a moment — thanks for joining the Company Chronicles.
             </p>
           </div>
         </div>
