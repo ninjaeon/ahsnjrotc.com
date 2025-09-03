@@ -5,6 +5,7 @@ const NewsletterSection = () => {
   const containerRef = React.useRef<HTMLDivElement | null>(null)
   const [enhanced, setEnhanced] = React.useState(false)
   const [isOpen, setIsOpen] = React.useState(false)
+  const [showSuccess, setShowSuccess] = React.useState(false)
   const closeBtnRef = React.useRef<HTMLButtonElement | null>(null)
 
   const SUPPRESS_KEY = 'newsletter-suppressed-until'
@@ -22,8 +23,11 @@ const NewsletterSection = () => {
         // Clean URL
         const cleanUrl = window.location.pathname + window.location.hash
         window.history.replaceState({}, '', cleanUrl)
+        // Show confirmation for 3 seconds; do not redirect here (Kit handles redirects)
+        setShowSuccess(true)
         setIsOpen(false)
-        return
+        const t = setTimeout(() => setShowSuccess(false), 3000)
+        return () => clearTimeout(t)
       }
     } catch {}
 
@@ -100,6 +104,39 @@ const NewsletterSection = () => {
       el.innerHTML = ''
     }
   }, [isOpen])
+
+  // Render success confirmation overlay (three seconds) if redirected back with Kit params
+  if (showSuccess) {
+    return (
+      <div
+        className="fixed inset-0 z-50"
+        role="dialog"
+        aria-modal="true"
+        aria-live="polite"
+        aria-labelledby="newsletter-success-title"
+      >
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: "linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('/img/arnoldnjrotc-logo.jpeg')",
+            backgroundRepeat: 'no-repeat, repeat-x',
+            backgroundSize: 'cover, auto',
+            backgroundPosition: 'center, center',
+          }}
+        />
+        <div className="relative z-10 flex min-h-full items-center justify-center p-4">
+          <div className="relative mx-auto max-w-lg w-full rounded-2xl bg-primary-950/30 backdrop-blur-xl backdrop-saturate-150 shadow-2xl ring-1 ring-white/15 p-8 sm:p-10 text-center">
+            <h2 id="newsletter-success-title" className="text-2xl md:text-3xl font-extrabold !text-white drop-shadow mb-2">
+              You're all set!
+            </h2>
+            <p className="text-base md:text-lg text-white/80">
+              We'll take you back to the homepage in just a moment — thanks for joining the Company Chronicles.
+            </p>
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   if (!isOpen) return null
 
