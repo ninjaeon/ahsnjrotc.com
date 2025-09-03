@@ -82,12 +82,6 @@ const NewsletterSection = () => {
     // Avoid duplicate injects (e.g., Fast Refresh)
     if (el.querySelector('form')) return
 
-    const onEmbeddedSubmit = () => {
-      try { localStorage.setItem(SIGNEDUP_KEY, 'true') } catch {}
-      setIsOpen(false)
-    }
-    el.addEventListener('submit', onEmbeddedSubmit, true)
-
     const script = document.createElement('script')
     script.src = 'https://f.convertkit.com/a89e921039.js'
     script.async = true
@@ -102,7 +96,6 @@ const NewsletterSection = () => {
     el.appendChild(script)
 
     return () => {
-      el.removeEventListener('submit', onEmbeddedSubmit, true)
       setEnhanced(false)
       el.innerHTML = ''
     }
@@ -131,14 +124,14 @@ const NewsletterSection = () => {
         }}
         style={{
           // Dark translucent overlay on top of the tiled logo background
-          backgroundImage: "linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('/img/arnoldnjrotc-logo.jpeg')",
+          backgroundImage: "linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('/img/arnoldnjrotc-logo.jpeg')",
           backgroundRepeat: 'no-repeat, repeat-x',
           backgroundSize: 'cover, auto',
           backgroundPosition: 'center, center',
         }}
       />
       <div className="relative z-10 flex min-h-full items-center justify-center p-4">
-        <div className="relative mx-auto max-w-2xl w-full rounded-2xl bg-primary-950/50 backdrop-blur-xl backdrop-saturate-150 shadow-2xl ring-1 ring-white/20 p-8 sm:p-10 text-center">
+        <div className="relative mx-auto max-w-2xl w-full rounded-2xl bg-primary-950/30 backdrop-blur-xl backdrop-saturate-150 shadow-2xl ring-1 ring-white/15 p-8 sm:p-10 text-center">
           <button
             type="button"
             aria-label="Close"
@@ -161,10 +154,6 @@ const NewsletterSection = () => {
             action="https://app.kit.com/forms/8505984/subscriptions"
             method="post"
             className={`mx-auto max-w-xl ${enhanced ? 'hidden' : ''}`}
-            onSubmit={() => {
-              try { localStorage.setItem(SIGNEDUP_KEY, 'true') } catch {}
-              setIsOpen(false)
-            }}
           >
             <div className="flex flex-col gap-3 text-left">
               <label className="sr-only" htmlFor="ck-email">Email Address</label>

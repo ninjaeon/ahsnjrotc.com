@@ -6,13 +6,13 @@ const nextConfig = {
   async headers() {
     const csp = [
       "default-src 'self';",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://ahsnjrotc.kit.com https://kit.com https://app.kit.com https://f.convertkit.com https://www.googletagmanager.com;",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://ahsnjrotc.kit.com https://kit.com https://app.kit.com https://f.convertkit.com https://www.googletagmanager.com https://app.convertkit.com https://convertkit.com;",
       "style-src 'self' 'unsafe-inline';",
       "img-src 'self' data: blob: https:;",
       "font-src 'self' data:;",
-      "connect-src 'self' https://ahsnjrotc.sanity.studio https://cdn.sanity.io https://apicdn.sanity.io https://www.google-analytics.com https://region1.google-analytics.com https://f.convertkit.com https://ahsnjrotc.kit.com https://kit.com https://app.kit.com https://firebase.googleapis.com https://firebaseinstallations.googleapis.com https://firebaselogging.googleapis.com https://firestore.googleapis.com https://identitytoolkit.googleapis.com;",
-      "frame-src 'self' https://ahsnjrotc.kit.com https://kit.com https://app.kit.com https://f.convertkit.com;",
-      "form-action 'self' https://app.kit.com;",
+      "connect-src 'self' https://ahsnjrotc.sanity.studio https://cdn.sanity.io https://apicdn.sanity.io https://www.google-analytics.com https://region1.google-analytics.com https://f.convertkit.com https://ahsnjrotc.kit.com https://kit.com https://app.kit.com https://app.convertkit.com https://api.convertkit.com https://convertkit.com https://firebase.googleapis.com https://firebaseinstallations.googleapis.com https://firebaselogging.googleapis.com https://firestore.googleapis.com https://identitytoolkit.googleapis.com;",
+      "frame-src 'self' https://ahsnjrotc.kit.com https://kit.com https://app.kit.com https://f.convertkit.com https://app.convertkit.com;",
+      "form-action 'self' https://app.kit.com https://app.convertkit.com;",
       "base-uri 'self';",
       "object-src 'none';",
     ].join(' ')

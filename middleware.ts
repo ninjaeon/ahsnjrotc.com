@@ -17,17 +17,17 @@ export function middleware(request: NextRequest, event: NextFetchEvent) {
   const csp = [
     "default-src 'self';",
     // Next.js may use inline snippets; Kit loads from kit.com + f.convertkit.com
-    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://ahsnjrotc.kit.com https://kit.com https://app.kit.com https://f.convertkit.com https://www.googletagmanager.com;",
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://ahsnjrotc.kit.com https://kit.com https://app.kit.com https://f.convertkit.com https://www.googletagmanager.com https://app.convertkit.com https://convertkit.com;",
     "style-src 'self' 'unsafe-inline';",
     // Allow local images and remote over https plus data and blob URIs
     "img-src 'self' data: blob: https:;",
     "font-src 'self' data:;",
     // Allow API/analytics, kit connections, and Firebase endpoints
-    "connect-src 'self' https://ahsnjrotc.sanity.studio https://cdn.sanity.io https://apicdn.sanity.io https://www.google-analytics.com https://region1.google-analytics.com https://f.convertkit.com https://ahsnjrotc.kit.com https://kit.com https://app.kit.com https://firebase.googleapis.com https://firebaseinstallations.googleapis.com https://firebaselogging.googleapis.com https://firestore.googleapis.com https://identitytoolkit.googleapis.com;",
+    "connect-src 'self' https://ahsnjrotc.sanity.studio https://cdn.sanity.io https://apicdn.sanity.io https://www.google-analytics.com https://region1.google-analytics.com https://f.convertkit.com https://ahsnjrotc.kit.com https://kit.com https://app.kit.com https://app.convertkit.com https://api.convertkit.com https://convertkit.com https://firebase.googleapis.com https://firebaseinstallations.googleapis.com https://firebaselogging.googleapis.com https://firestore.googleapis.com https://identitytoolkit.googleapis.com;",
     // In case kit uses iframes in some formats
-    "frame-src 'self' https://ahsnjrotc.kit.com https://kit.com https://app.kit.com https://f.convertkit.com;",
-    // Form submissions post to app.kit.com
-    "form-action 'self' https://app.kit.com;",
+    "frame-src 'self' https://ahsnjrotc.kit.com https://kit.com https://app.kit.com https://f.convertkit.com https://app.convertkit.com;",
+    // Form submissions post to kit/app domains
+    "form-action 'self' https://app.kit.com https://app.convertkit.com;",
     "base-uri 'self';",
     "object-src 'none';",
   ].join(' ')
