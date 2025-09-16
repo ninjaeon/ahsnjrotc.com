@@ -180,6 +180,21 @@ export const sampleNjrotcData = {
         "/img/IMG_0246.jpeg",
         "/img/IMG_0245.jpeg"
       ]
+    },
+    {
+      _id: "past-6",
+      title: "Mini Bootcamp",
+      description: "Our Mini Bootcamp is a time for our NSI's (first year students) to get a basic understanding of our curriculum, and take their first promotion test. Attending this event helps cadets get a head start in the year.",
+      date: "2025-08-23T09:00:00.000Z",
+      location: "J.R. Arnold Highschool",
+      isPastEvent: true,
+      gallery: [
+        "/img/IMG_0683.jpeg",
+        "/img/IMG_0684.jpeg",
+        "/img/IMG_0685.jpeg",
+        "/img/IMG_0686.jpeg",
+        "/img/IMG_0687.jpeg"
+      ]
     }
   ],
   contactInfo: {
