@@ -22,9 +22,9 @@ const leadershipTeam = [
     description: 'Operations Officer, 0-3 Lieutenant, my job is to plan events, when, where, what, and how we will get there.',
   },
   {
-    name: 'Zachary Tucker',
+    name: 'Zackarie Tucker',
     image: '/img/IMG_0278.jpeg',
-    description: '',
+    description: 'My name is Zackarie Tucker and I\'m a Lieutenant (O-3). I\'m the Training Officer and I help where needed.',
   },
   {
     name: 'Maya Hamilton',
@@ -48,8 +48,8 @@ const leadershipTeam = [
   },
   {
     name: 'Samuel Gerber',
-    image: '/img/IMG_0277.jpeg',
-    description: '',
+    image: '/img/IMG_0690.jpeg',
+    description: 'Hi, I\'m Sam. As the Supply Chief Petty Officer my job is to handle all of our units supplies. I make sure things are organized, kept clean, and also make sure our cadets are issued the right equipment within our unit.',
   },
   {
     name: 'Noah Greenberg',
