@@ -12,7 +12,7 @@ export default function PFTSection() {
 
         <div className="max-w-4xl mx-auto">
           <div className="bg-primary-800/50 backdrop-blur-sm rounded-lg p-8 border border-gold-400/20">
-            <div className="relative mb-8 max-w-lg mx-auto">
+            <div className="relative mb-8 max-w-xl mx-auto">
               <Image
                 src="/img/IMG_0713.jpeg"
                 alt="PFT Requirements"
