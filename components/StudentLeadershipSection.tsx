@@ -29,12 +29,12 @@ const leadershipTeam = [
   {
     name: 'Vincent Dunning',
     image: '/img/IMG_0275.jpeg',
-    description: "My name is Vincent Dunning. I am the Arnold NJROTC unit's Operations Chief. My job is to manage our units Operation chart. That is a chart of the promotion tests our cadets have passed. Additionally, I assist our Operations Officer with anything she may need help with. I am also one of our Unit's Platoon Commanders.",
+    description: "I am the Admin Officer of Marlin Company's NJROTC unit. I put our cadets information onto an online website called CDMIS. I command everything with Admin and manage the Admin Team. ",
   },
   {
     name: 'Justyce Jones',
     image: '/img/IMG_0242.jpeg',
-    description: 'Jones is a general chief that works in supply. She takes care of supply along with the supply chief and PC’s her platoon.',
+    description: 'I am the Supply Officer of our unit. I work online, log information, and take care of supply. I PC my platoon and help any staff members when I can.',
   },
   {
     name: 'Maya Hamilton',
