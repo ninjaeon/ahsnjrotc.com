@@ -48,7 +48,7 @@ const leadershipTeam = [
   },
   {
     name: 'Noah Greenberg',
-    image: '/img/IMG_0285.jpeg',
+    image: '/img/IMG_0749.jpeg',
     description: 'As the Administration Chief, Cadet Noah Greenberg ensures accurate record-keeping, cadet accountability, and smooth internal communication across the unit. His leadership supports efficient operations and helps the unit stay mission-ready. Noah is also committed to community service, playing an active role in organizing and logging volunteer efforts that reflect the unit’s core values.',
   },
   {
