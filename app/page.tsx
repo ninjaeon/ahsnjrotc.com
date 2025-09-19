@@ -6,6 +6,7 @@ import StudentLeadershipSection from '@/components/StudentLeadershipSection'
 import BenefitsSection from '@/components/BenefitsSection'
 import CurriculumSection from '@/components/CurriculumSection'
 import PFTSection from '@/components/PFTSection'
+import CadetResourcesSection from '@/components/CadetResourcesSection'
 import EventsSection from '@/components/EventsSection'
 import NewsletterSection from '@/components/NewsletterSection'
 import Footer from '@/components/Footer'
@@ -34,6 +35,8 @@ export default function HomePage() {
       />
 
       <PFTSection />
+
+      <CadetResourcesSection />
       
       <StudentLeadershipSection />
 
