@@ -40,7 +40,15 @@ function formatEventDate(dateStr?: string) {
 
 export default function EventsSection({ events }: EventsSectionProps) {
   const upcomingEvents = events?.filter(event => !event.isPastEvent) || []
-  const pastEvents = events?.filter(event => event.isPastEvent) || []
+  const pastEvents =
+    events
+      ?.filter(event => event.isPastEvent)
+      .sort((a, b) => {
+        if (a.date && b.date) {
+          return new Date(b.date).getTime() - new Date(a.date).getTime()
+        }
+        return 0
+      }) || []
 
   return (
     <section id="events" className="py-20 px-4 bg-primary-950">
