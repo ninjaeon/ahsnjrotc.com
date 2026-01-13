@@ -99,6 +99,15 @@ export const sampleNjrotcData = {
       gallery: []
     },
     {
+      _id: "upcoming-4",
+      title: "Annual Military Inspection",
+      description: "The Annual Military Inspection is a formal review of cadets’ appearance, drill, and unit performance by a Navy representative.",
+      date: "2026-01-13T09:00:00.000Z",
+      location: "Arnold High School",
+      isPastEvent: false,
+      gallery: []
+    },
+    {
       _id: "upcoming-3",
       title: "Annual Company Cookout",
       description: "Our annual cookout is a time for cadets to hangout, go for a swim, and enjoy TOP’s famous burgers",
