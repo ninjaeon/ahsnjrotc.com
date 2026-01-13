@@ -108,10 +108,10 @@ export const sampleNjrotcData = {
       gallery: []
     },
     {
-      _id: "upcoming-3",
+      _id: "past-7",
       title: "Annual Company Cookout",
       description: "Our annual cookout is a time for cadets to hangout, go for a swim, and enjoy TOP’s famous burgers",
-      date: "2024-09-20T12:00:00.000Z",
+      date: "2023-09-20T12:00:00.000Z",
       location: "The Navy Base",
       isPastEvent: true,
       gallery: [
