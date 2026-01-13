@@ -91,6 +91,25 @@ export const sampleNjrotcData = {
   ],
   events: [
     {
+      _id: "past-7",
+      title: "Annual Company Cookout",
+      description: "Our annual cookout is a time for cadets to hangout, go for a swim, and enjoy TOP’s famous burgers",
+      date: "2025-09-20T12:00:00.000Z",
+      location: "The Navy Base",
+      isPastEvent: true,
+      gallery: [
+        "/img/IMG_0005.jpeg",
+        "/img/IMG_0006.jpeg",
+        "/img/IMG_0007.jpeg",
+        "/img/IMG_0008.jpeg",
+        "/img/IMG_0009.jpeg",
+        "/img/IMG_0010.jpeg",
+        "/img/IMG_0011.jpeg",
+        "/img/IMG_0012.jpeg",
+        "/img/IMG_0013.jpeg"
+      ]
+    },
+    {
       _id: "upcoming-1",
       title: "Annual Navy Ball",
       description: "Formal dinner and dance celebrating military traditions and recognizing outstanding cadets.",
@@ -106,25 +125,6 @@ export const sampleNjrotcData = {
       location: "Arnold High School",
       isPastEvent: false,
       gallery: []
-    },
-    {
-      _id: "past-7",
-      title: "Annual Company Cookout",
-      description: "Our annual cookout is a time for cadets to hangout, go for a swim, and enjoy TOP’s famous burgers",
-      date: "2023-09-20T12:00:00.000Z",
-      location: "The Navy Base",
-      isPastEvent: true,
-      gallery: [
-        "/img/IMG_0005.jpeg",
-        "/img/IMG_0006.jpeg",
-        "/img/IMG_0007.jpeg",
-        "/img/IMG_0008.jpeg",
-        "/img/IMG_0009.jpeg",
-        "/img/IMG_0010.jpeg",
-        "/img/IMG_0011.jpeg",
-        "/img/IMG_0012.jpeg",
-        "/img/IMG_0013.jpeg"
-      ]
     },
     {
       _id: "past-1",
