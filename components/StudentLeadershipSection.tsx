@@ -2,9 +2,16 @@ import Image from 'next/image'
 
 const leadershipTeam = [
   {
-    name: 'Logan Dunning',
-    image: '/img/IMG_0276.jpeg',
-    description: 'My name is Logan Dunning and I am an O-5 or a Commander in NJROTC. My job for the unit is to lead and oversee all of the major plans and projects our unit has planned.',
+    name: 'Maya Hamilton',
+    image: '/img/IMG_2985.png',
+    description: `Cadet Commanding Officer Hamilton, Hamilton is the leader of Marlin Company and holds full responsibility for the unit’s performance, discipline, and overall success. C/CO Hamilton’s specific responsibilities include:
+
+- establishing operating policies
+- exercising command authority
+- ensuring the unit is properly equipped and supported
+- ensuring training readiness
+- inspecting unit efficiency
+- taking corrective actions`,
   },
   {
     name: 'Ryan Smith',
@@ -35,11 +42,6 @@ const leadershipTeam = [
     name: 'Justyce Jones',
     image: '/img/IMG_0242.jpeg',
     description: 'I am the Supply Officer of our unit. I work online, log information, and take care of supply. I PC my platoon and help any staff members when I can.',
-  },
-  {
-    name: 'Maya Hamilton',
-    image: '/img/IMG_0281.jpeg',
-    description: 'Senior Chief : E-8 My name is Maya Hamilton and I want to make our unit a home for our cadets where we can teach them into responsible, smart, confident young men and women. To be prepared for the next chapter in their life. I want our cadets to have fun but also learn valuable lessons from us.',
   },
   {
     name: 'Joseph Hood',
@@ -102,7 +104,7 @@ export default function StudentLeadershipSection() {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gold-400 mb-2">{leader.name}</h3>
-                <p className="text-white/90 text-sm" style={{ minHeight: '100px' }}>{leader.description}</p>
+                <p className="text-white/90 text-sm whitespace-pre-line" style={{ minHeight: '100px' }}>{leader.description}</p>
               </div>
             </div>
           ))}
