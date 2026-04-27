@@ -16,7 +16,7 @@ const leadershipTeam = [
   },
   {
     name: 'Justyce Jones',
-    image: '/img/IMG_2987.png',
+    image: '/img/IMG_2987.jpeg',
     description: `Cadet Lieutenant Commander Jones, Jones is the head of all the officer personnel of our unit, and ensures all plans are executed properly. C/LtCdr Jones’ specific responsibilities include:
 - overlooking all of Marlin Company and it’s staff
 - taking care of the units Supply room
