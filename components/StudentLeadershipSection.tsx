@@ -24,9 +24,15 @@ const leadershipTeam = [
 - planning the unit’s athletics `,
   },
   {
-    name: 'Xander Powell',
-    image: '/img/IMG_0282.jpeg',
-    description: 'Xander Powell Master Chief Petty Officer overseeing everything, and helping out with anything.',
+    name: 'Jack Doyle',
+    image: '/img/IMG_2986.jpeg',
+    description: `Cadet Command Master Chief Petty Officer Doyle, Doyle is the head of the Enlisted personnel of our unit, charged with the training and leadership development of our future leaders. C/CMC Doyle’s specific responsibilities include:
+
+ - Platoon Commander of the 7th Period Leadership Platoon
+ - Managing and training Platoon Commanders
+ - Managing Drill
+ - Commanding Color Guard Team
+ - Commanding Armed Exhibition Team`,
   },
   {
     name: 'Melissa Ayikoru (A.K)',
