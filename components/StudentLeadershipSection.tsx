@@ -15,9 +15,13 @@ const leadershipTeam = [
 - taking corrective actions`,
   },
   {
-    name: 'Ryan Smith',
-    image: '/img/IMG_0292.jpeg',
-    description: 'Hi I’m Ryan, I’m the Executive Officer (XO), and I make sure everyone’s job is done correctly and efficiently. I also work with the CO and CMC on big projects and ideas for the unit.',
+    name: 'Justyce Jones',
+    image: '/img/IMG_2987.png',
+    description: `Cadet Lieutenant Commander Jones, Jones is the head of all the officer personnel of our unit, and ensures all plans are executed properly. C/LtCdr Jones’ specific responsibilities include:
+- overlooking all of Marlin Company and it’s staff
+- taking care of the units Supply room
+- fitting and issuing uniform items
+- planning the unit’s athletics `,
   },
   {
     name: 'Xander Powell',
@@ -38,11 +42,6 @@ const leadershipTeam = [
     name: 'Vincent Dunning',
     image: '/img/IMG_0275.jpeg',
     description: "I am the Admin Officer of Marlin Company's NJROTC unit. I put our cadets information onto an online website called CDMIS. I command everything with Admin and manage the Admin Team. ",
-  },
-  {
-    name: 'Justyce Jones',
-    image: '/img/IMG_0242.jpeg',
-    description: 'I am the Supply Officer of our unit. I work online, log information, and take care of supply. I PC my platoon and help any staff members when I can.',
   },
   {
     name: 'Joseph Hood',
