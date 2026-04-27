@@ -3,8 +3,8 @@ import Image from 'next/image'
 const leadershipTeam = [
   {
     name: 'Maya Hamilton',
-    image: '/img/IMG_2985.png',
-    position: 'center 115%',
+    image: '/img/IMG_2985.jpeg',
+    position: 'center',
     description: `Cadet Commanding Officer Hamilton, Hamilton is the leader of Marlin Company and holds full responsibility for the unit’s performance, discipline, and overall success. C/CO Hamilton’s specific responsibilities include:
 
 - establishing operating policies
