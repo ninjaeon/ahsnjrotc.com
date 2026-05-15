@@ -46,9 +46,17 @@ Cadet Lieutenant Summerlin is responsible for keeping up with staff including ma
 - Works with Cadet Master Chief to plan community service events`,
   },
   {
-    name: 'Zackarie Tucker',
-    image: '/img/IMG_0278.jpeg',
-    description: 'My name is Zackarie Tucker and I\'m a Lieutenant (O-3). I\'m the Training Officer and I help where needed.',
+    name: 'Cameron Smith',
+    image: '/img/IMG_3157.jpeg',
+    description: `Cadet Senior Chief
+Cameron Smith serves as the senior enlisted cadet of the unit, upholding standards, enforcing discipline, and supporting the chain of command. He is responsible for ensuring accountability and developing cadets into capable leaders, while maintaining the professionalism and effectiveness of the unit.
+
+C/SCPO Smiths specific responsibilities include:
+-Supporting Chain of Command
+-Maintaining Professionalism and effectiveness of the unit
+-Training Platoon Commanders
+-Enforcing The Standards
+-Developing Better Leaders`,
   },
   {
     name: 'Vincent Dunning',
