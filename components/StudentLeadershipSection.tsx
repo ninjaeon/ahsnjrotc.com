@@ -35,9 +35,15 @@ const leadershipTeam = [
  - Commanding Armed Exhibition Team`,
   },
   {
-    name: 'Melissa Ayikoru (A.K)',
-    image: '/img/IMG_0274.jpeg',
-    description: 'Operations Officer, 0-3 Lieutenant, my job is to plan events, when, where, what, and how we will get there.',
+    name: 'Raeley Summerlin',
+    image: '/img/IMG_3151.jpeg',
+    description: `Cadet Chief of Staff
+Raeley Summerlin
+Cadet Lieutenant Summerlin is responsible for keeping up with staff including making sure they are doing their jobs and making sure everything is consistently running smoothly. Cadet Summerlin also holds other responsibilities including:
+- All public affairs (fundraising, website, news letter, trip planning, photography)
+- Oversights OPS, Admin, and Supply
+- Mediates staff
+- Works with Cadet Master Chief to plan community service events`,
   },
   {
     name: 'Zackarie Tucker',
@@ -68,11 +74,6 @@ const leadershipTeam = [
     name: 'Nikolas Mauceri',
     image: '/img/IMG_0279.jpeg',
     description: 'As the Athletics Chief for the 25-26 Marlin Company of close to 150 cadets, Chief Mauceri is responsible for organizing and leading physical training sessions, ensuring all cadets meet fitness standards and promotes overall unit readiness. He also coordinates fitness assessments, tracks performance data, and motivates cadets to improve their physical conditioning.',
-  },
-  {
-    name: 'Raeley Summerlin',
-    image: '/img/IMG_0716.jpeg',
-    description: 'Heyy, I am our Public Affairs Chief. It is my job to keep this website updated, to create and send out our newsletter (The Company Chronicles), to create and manage all of our fundraisers, and to plan all of our trips/events.',
   },
   {
     name: 'Alana Bunnell',
