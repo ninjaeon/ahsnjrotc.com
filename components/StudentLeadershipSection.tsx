@@ -59,9 +59,14 @@ C/SCPO Smiths specific responsibilities include:
 -Developing Better Leaders`,
   },
   {
-    name: 'Vincent Dunning',
-    image: '/img/IMG_0275.jpeg',
-    description: "I am the Admin Officer of Marlin Company's NJROTC unit. I put our cadets information onto an online website called CDMIS. I command everything with Admin and manage the Admin Team. ",
+    name: 'Sidney Robinson',
+    image: '/img/IMG_3635.jpeg',
+    description: `Cadet Chief petty officer Robinson, Robinson is our operations chief and is in charge of our tests, awards and decorations for the whole unit. CCPO Robinson’s specific tasks include:
+- Cadet Files
+- Promotional Tests
+- Awards and decorations
+- Promotion Papers
+- End Of Year report (EOY)`,
   },
   {
     name: 'Joseph Hood',
