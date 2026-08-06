@@ -69,9 +69,13 @@ C/SCPO Smiths specific responsibilities include:
 - End Of Year report (EOY)`,
   },
   {
-    name: 'Joseph Hood',
-    image: '/img/IMG_0283.jpeg',
-    description: 'Cadet Chief Petty Officer Joseph Hood currently serves as the Platoon Commander Training Lead for Marlin Company, where his primary duty is to oversee the development, preparation, and readiness of all platoon commanders within the unit. His job is to ensure that each commander not only understands their role but can perform it with confidence, precision, and leadership excellence. This role involves building custom training regimens, evaluating performance during drills and inspections, and providing constant mentorship to help commanders grow into effective and disciplined leaders.',
+    name: 'Sila Muktarzhankyzy (MK)',
+    image: '/img/IMG_3637.jpeg',
+    description: `Cadet Chief Petty Officer Sila Muktarzhankyzy (MK) serves as the Administrative Chief and is responsible for managing the administrative and digital operations of the unit. She ensures accurate record keeping and accountability. Primary Responsibilities include:
+
+- Managing CDMIS records
+- Maintaining cadet record management
+- Tracking attendance and participation`,
   },
   {
     name: 'Noah Greenberg',
