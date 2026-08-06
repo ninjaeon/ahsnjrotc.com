@@ -110,23 +110,6 @@ export const sampleNjrotcData = {
       ]
     },
     {
-      _id: "upcoming-1",
-      title: "Annual Navy Ball",
-      description: "Formal dinner and dance celebrating military traditions and recognizing outstanding cadets.",
-      location: "Edgewater Event Center",
-      isPastEvent: false,
-      gallery: []
-    },
-    {
-      _id: "upcoming-4",
-      title: "Annual Military Inspection",
-      description: "The Annual Military Inspection is a formal review of cadets’ appearance, drill, and unit performance by a Navy representative.",
-      date: "2026-01-13T09:00:00.000Z",
-      location: "Arnold High School",
-      isPastEvent: false,
-      gallery: []
-    },
-    {
       _id: "past-1",
       title: "FAMU Drill Competition",
       description: "Annual drill team competition showcasing precision movements and military bearing.",
