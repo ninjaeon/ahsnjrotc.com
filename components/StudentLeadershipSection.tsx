@@ -82,21 +82,6 @@ C/SCPO Smiths specific responsibilities include:
     image: '/img/IMG_0749.jpeg',
     description: 'As the Administration Chief, Cadet Noah Greenberg ensures accurate record-keeping, cadet accountability, and smooth internal communication across the unit. His leadership supports efficient operations and helps the unit stay mission-ready. Noah is also committed to community service, playing an active role in organizing and logging volunteer efforts that reflect the unit’s core values.',
   },
-  {
-    name: 'Samuel Gerber',
-    image: '/img/IMG_0690.jpeg',
-    description: 'Hi, I\'m Sam. As the Supply Chief Petty Officer my job is to handle all of our units supplies. I make sure things are organized, kept clean, and also make sure our cadets are issued the right equipment within our unit.',
-  },
-  {
-    name: 'Nikolas Mauceri',
-    image: '/img/IMG_0279.jpeg',
-    description: 'As the Athletics Chief for the 25-26 Marlin Company of close to 150 cadets, Chief Mauceri is responsible for organizing and leading physical training sessions, ensuring all cadets meet fitness standards and promotes overall unit readiness. He also coordinates fitness assessments, tracks performance data, and motivates cadets to improve their physical conditioning.',
-  },
-  {
-    name: 'Alana Bunnell',
-    image: '/img/IMG_0730.jpeg',
-    description: 'I’m an E-7 in our ROTC I’m the weapons chief, I fix rifles, clean supply, and help around ROTC in any way I can.',
-  },
 ]
 
 export default function StudentLeadershipSection() {
