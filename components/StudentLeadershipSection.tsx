@@ -61,7 +61,7 @@ C/SCPO Smiths specific responsibilities include:
   {
     name: 'Sidney Robinson',
     image: '/img/IMG_3635.jpeg',
-    description: `Cadet Chief petty officer Robinson, Robinson is our operations chief and is in charge of our tests, awards and decorations for the whole unit. CCPO Robinson’s specific tasks include:
+    description: `Cadet Chief Petty Officer Robinson, Robinson is our operations chief and is in charge of our tests, awards and decorations for the whole unit. CCPO Robinson’s specific tasks include:
 - Cadet Files
 - Promotional Tests
 - Awards and decorations
