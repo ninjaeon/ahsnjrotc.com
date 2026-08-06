@@ -78,9 +78,15 @@ C/SCPO Smiths specific responsibilities include:
 - Tracking attendance and participation`,
   },
   {
-    name: 'Noah Greenberg',
-    image: '/img/IMG_0749.jpeg',
-    description: 'As the Administration Chief, Cadet Noah Greenberg ensures accurate record-keeping, cadet accountability, and smooth internal communication across the unit. His leadership supports efficient operations and helps the unit stay mission-ready. Noah is also committed to community service, playing an active role in organizing and logging volunteer efforts that reflect the unit’s core values.',
+    name: 'David Folsom',
+    image: '/img/IMG_3640.jpeg',
+    description: `Cadet Chief Petty Officer Folsom, Folsom is the Admin/Operations Chief, charged with the assistance of the Administrative field and the Operations field, CPO Folsom's specific responsibility's include:
+
+- Updating the opps chart
+- Cadet files
+- Promotion tests
+- Updating CDMIS
+- Filling out the EOY`,
   },
   {
     name: 'Samuel Gerber',
