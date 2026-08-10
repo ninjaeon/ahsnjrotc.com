@@ -88,6 +88,14 @@ C/SCPO Smiths specific responsibilities include:
 - Updating CDMIS
 - Filling out the EOY`,
   },
+  {
+    name: 'Riley Thompson',
+    image: '/img/IMG_3656.jpeg',
+    description: `Cadet Chief Petty Officer Riley Thompson serves as the units General Chief. C/CPO Thompson’s duties include:
+- Watching over his platoon
+-Picking up tasks when needed
+-Helping manage supply duties`,
+  },
 ]
 
 export default function StudentLeadershipSection() {
